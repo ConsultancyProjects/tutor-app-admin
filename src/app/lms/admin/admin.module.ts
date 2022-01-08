@@ -27,6 +27,9 @@ import { RemoveStudentCourseComponent } from './remove-student-course/remove-stu
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbPaginationModule, NgbAccordionModule, NgbTooltipModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateCourseComponent } from './create-course/create-course.component';
+import { EditCourseComponent } from './edit-course/edit-course.component';
+import { ViewCoursesComponent } from './view-courses/view-courses.component';
 
 
 @NgModule({
@@ -42,7 +45,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReassignTutorsComponent,
     ManageStudentsComponent,
     AssignCourseComponent,
-    RemoveStudentCourseComponent
+    RemoveStudentCourseComponent,
+    CreateCourseComponent,
+    EditCourseComponent,
+    ViewCoursesComponent
   ],
   imports: [
     CommonModule,

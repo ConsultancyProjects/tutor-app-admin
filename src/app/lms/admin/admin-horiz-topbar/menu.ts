@@ -24,6 +24,16 @@ export const MENU: MenuItem[] = [
                 label: 'MENUITEMS.COURSES.LIST.CREATECOURSE',
                 link: 'createCourse',
                 parentId: 1
+            },{
+                id: 3,
+                label: 'MENUITEMS.COURSES.LIST.EDITCOURSE',
+                link: 'editCourse',
+                parentId: 1
+            },{
+                id: 4,
+                label: 'MENUITEMS.COURSES.LIST.VIEWCOURSES',
+                link: 'viewCourses',
+                parentId: 1
             }
         ]
     },

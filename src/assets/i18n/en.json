@@ -127,7 +127,8 @@
 			"BADGE": "04",
 			"LIST": {
 				"CREATECOURSE": "Create a Course",
-				"LETSSEE": "SEE"
+				"EDITCOURSE": "Edit a Course",
+				"VIEWCOURSES": "View all Courses"
 			}
 		},
 		"LAYOUTS": {
