@@ -43,7 +43,7 @@ export class AssignCourseStudentComponent implements OnInit {
     selectable: true,
     selectMirror: true,
     dayMaxEvents: true,
-    dateClick: this.openModal.bind(this),
+    
     eventClick: this.handleEventClick.bind(this),
     eventsSet: this.handleEvents.bind(this),
     eventTimeFormat: { // like '14:30:00'

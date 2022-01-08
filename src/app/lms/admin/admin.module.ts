@@ -23,6 +23,7 @@ import { ReassignTutorsComponent } from './reassign-tutors/reassign-tutors.compo
 import { ManageStudentsComponent } from './manage-students/manage-students.component';
 import { AssignCourseComponent } from './assign-course/assign-course.component';
 import { RemoveStudentCourseComponent } from './remove-student-course/remove-student-course.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { RemoveStudentCourseComponent } from './remove-student-course/remove-stu
   imports: [
     CommonModule,
     RouterModule,
+    FontAwesomeModule,
     TranslateModule,
     NgbDropdownModule,
     ClickOutsideModule,

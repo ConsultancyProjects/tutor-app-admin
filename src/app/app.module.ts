@@ -10,7 +10,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 
-import { PagesModule } from './pages/pages.module';
+
 
 
 import { LmsModule } from './lms/lms.module';
@@ -31,6 +31,7 @@ import { UserEffects, CategoryEffects } from './shared';
 import { EffectsModule } from '@ngrx/effects';
 
 import { AddModule } from '@carbon/icons-angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 /*
 if (environment.defaultauth === 'firebase') {
@@ -66,7 +67,7 @@ export const reducers: ActionReducerMap<any> = {
     LmsModule,
     AppRoutingModule,
     AddModule,
-    PagesModule,
+    
     CarouselModule,
     NgbAccordionModule,
     NgbNavModule,
@@ -75,7 +76,8 @@ export const reducers: ActionReducerMap<any> = {
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects, CategoryEffects]),
     ScrollToModule.forRoot(),
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   bootstrap: [AppComponent],
   providers: [

@@ -47,12 +47,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
 
     let userDetails = JSON.parse(localStorage.getItem(GENERIC_CONSTANTS.LOGGEDIN_USER));
-    if(userDetails.role && userDetails.role.length> 0) {
+    if(userDetails && userDetails.role && userDetails.role.length> 0) {
       userDetails.role.forEach((item) => {
         if( item.authority == 'ADMIN' ) {
          // this.router.navigate(['admin']); 
         }
       });
+    } else {
+      this.router.navigate([ROUTES.ACCOUNT_LOGIN]); 
     }
   }
 
