@@ -33,5 +33,9 @@ export class UserService {
     updateUserRole(roleId, userId) {
         return this.http.putRequest<any>(API_ENDPOINTS.ROLE.API + API_ENDPOINTS.ROLE.UPDATEUSERROLE(roleId, userId),{});
     }
+
+    deleteUser(userId) {
+        return this.http.deleteRequest<any>(API_ENDPOINTS.USER.API + API_ENDPOINTS.USER.DELETE_USER_PROFILE(userId))
+    }
 }
 

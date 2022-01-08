@@ -71,6 +71,7 @@ export const API_ENDPOINTS = {
         ALL_USERS: '/all',
         GET_ALL_USERS_BY_ROLE: (roleId: string) => `/?roleId=${roleId}`,
         GET_USER_PROFILE: (userId: string) => `/${userId}`,
+        DELETE_USER_PROFILE: (userId: string) => `/${userId}`,
     },
     TIMETABLE: {
         API: 'timetable',

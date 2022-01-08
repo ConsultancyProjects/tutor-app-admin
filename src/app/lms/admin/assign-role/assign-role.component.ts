@@ -19,7 +19,7 @@ export class AssignRoleComponent implements OnInit {
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Users' }, { label: 'Manage users', active: true }];
-
+    
     this.userService.getAllUsersByRole('').subscribe({
       next: userdata => {
           this.userData = userdata;

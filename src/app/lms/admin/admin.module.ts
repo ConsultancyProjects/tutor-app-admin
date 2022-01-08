@@ -59,7 +59,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([]),
-    NgbPaginationModule
+    NgbPaginationModule,
   ],exports: [
     AdminNavComponent,
     AdminHorizTopbarComponent,
