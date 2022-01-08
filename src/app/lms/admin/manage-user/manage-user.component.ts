@@ -18,7 +18,7 @@ export class ManageUserComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Users' }, { label: 'Manage users', active: true }];
 
-    let userData = this.userService.getAllUsersByRole('').subscribe({
+    let userData = this.userService.getAllUsers().subscribe({
             next: userdata => {
                 this.userData = userdata;
             },error: error => {

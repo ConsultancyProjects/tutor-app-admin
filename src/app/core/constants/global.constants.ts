@@ -68,6 +68,7 @@ export const API_ENDPOINTS = {
     },
     USER: {
         API: 'users',
+        ALL_USERS: '/all',
         GET_ALL_USERS_BY_ROLE: (roleId: string) => `/?roleId=${roleId}`,
         GET_USER_PROFILE: (userId: string) => `/${userId}`,
     },

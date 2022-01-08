@@ -17,6 +17,12 @@ export class UserService {
         const url:string = API_ENDPOINTS.USER.API + API_ENDPOINTS.USER.GET_ALL_USERS_BY_ROLE(roleId);
         return this.http.getRequest<any>(url);
     }
+
+    getAllUsers(): any {
+        const url:string = API_ENDPOINTS.USER.API + API_ENDPOINTS.USER.ALL_USERS;
+        return this.http.getRequest<any>(url);
+    }
+
     getUserProfile(userId: string) {
         return this.http.getRequest<any>(API_ENDPOINTS.USER.API + API_ENDPOINTS.USER.GET_USER_PROFILE(userId))
         .pipe(map(data => {
