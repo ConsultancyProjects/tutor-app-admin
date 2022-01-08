@@ -20,15 +20,15 @@ export class ManageUserComponent implements OnInit, OnChanges {
 
     let userData = this.userService.getAllUsersByRole('').subscribe({
             next: userdata => {
-                return userdata;
+                this.userData = userdata;
             },error: error => {
                 return null;
             }
         });
-    this.userData = [];
+    /*
     userData.forEach(element => {
       this.userData[this.userData.length] = element;
-    });
+    }); */
       
   }
 

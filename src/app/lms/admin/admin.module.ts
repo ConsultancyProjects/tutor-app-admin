@@ -24,6 +24,8 @@ import { ManageStudentsComponent } from './manage-students/manage-students.compo
 import { AssignCourseComponent } from './assign-course/assign-course.component';
 import { RemoveStudentCourseComponent } from './remove-student-course/remove-student-course.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbPaginationModule, NgbAccordionModule, NgbTooltipModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     StoreModule,
     AdminRoutingModule,
     CategoryModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    NgbPaginationModule
   ],exports: [
     AdminNavComponent,
     AdminHorizTopbarComponent,
