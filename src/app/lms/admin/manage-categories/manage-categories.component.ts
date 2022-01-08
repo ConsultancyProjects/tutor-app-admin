@@ -25,7 +25,7 @@ export class ManageCategoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'Forms' }, { label: 'Form Repeater', active: true }];
+    this.breadCrumbItems = [{ label: 'Categories' }, { label: 'Manage Category', active: true }];
   }
 
   formData(): FormArray {

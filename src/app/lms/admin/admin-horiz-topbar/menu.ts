@@ -15,6 +15,19 @@ export const MENU: MenuItem[] = [
         ]
     },
     {
+        id: 1,
+        label: 'MENUITEMS.COURSES.TEXT',
+        icon: 'bx-video',
+        subItems: [
+            {
+                id: 2,
+                label: 'MENUITEMS.COURSES.LIST.CREATECOURSE',
+                link: 'createCourse',
+                parentId: 1
+            }
+        ]
+    },
+    {
         id: 6,
         label: 'MENUITEMS.TUTORS.TEXT',
         icon: 'bx-tone',

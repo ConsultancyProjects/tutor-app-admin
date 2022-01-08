@@ -122,6 +122,14 @@
 				"DEFAULT": "Manage Categories"
 			}
 		},
+		"COURSES": {
+			"TEXT": "Courses",
+			"BADGE": "04",
+			"LIST": {
+				"CREATECOURSE": "Create a Course",
+				"LETSSEE": "SEE"
+			}
+		},
 		"LAYOUTS": {
 			"TEXT": "Layouts",
 			"LIST": {
