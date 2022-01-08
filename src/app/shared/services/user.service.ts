@@ -23,5 +23,9 @@ export class UserService {
                  return data;
         }));
     }
+
+    updateUserRole(roleId, userId) {
+        return this.http.putRequest<any>(API_ENDPOINTS.ROLE.API + API_ENDPOINTS.ROLE.UPDATEUSERROLE(roleId, userId),{});
+    }
 }
 

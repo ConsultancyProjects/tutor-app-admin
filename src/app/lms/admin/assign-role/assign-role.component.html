@@ -36,7 +36,6 @@ class="ag-theme-alpine"
               
   
               <div class="media-body overflow-hidden">
-                
                 <h5 class="text-truncate font-size-20">
                   <a href="javascript: void(0);" class="text-dark">{{grid.name}}</a>
                 </h5>
@@ -44,24 +43,7 @@ class="ag-theme-alpine"
                   <a href="javascript: void(0);" class="">{{grid.email}}</a>
                 </h6>
                 
-                <!--<div class="avatar-group">
-                  
-                  <div class="avatar-group-item">
-                    <a href="javascript: void(0);" class="d-inline-block">
-                      <img src="{{grid.users[0]}}" class="rounded-circle avatar-xs" alt />
-                    </a>
-                  </div>
-                  <div class="avatar-group-item" *ngIf="grid.users[1]">
-                    <a href="javascript: void(0);"  class="d-inline-block">]
-                      <img src="{{grid.users[1]}}" class="rounded-circle avatar-xs" alt />
-                    </a>
-                  </div>
-                  <div class="avatar-group-item" *ngIf="grid.users[2]">
-                    <a href="javascript: void(0);" class="d-inline-block"> 
-                      <img src="{{grid.users[2]}}" class="rounded-circle avatar-xs" alt />
-                    </a>
-                  </div>
-                </div>-->
+               
               </div>
             </div>
           </div>
@@ -75,9 +57,9 @@ class="ag-theme-alpine"
               </li>
               <li class="list-inline-item me-4">
                 <div class="btn-group" role="group" aria-label="Assign Role">
-                  <button type="button" class="btn btn-success" onclick="">Admin</button>
-                  <button type="button" class="btn btn-success">Tutor</button>
-                  <button type="button" class="btn btn-success">Student</button>
+                  <button type="button" class="btn btn-success" (click)="assignRole('1', grid.userId)">Admin</button>
+                  <button type="button" class="btn btn-success" (click)="assignRole('2', grid.userId)">Tutor</button>
+                  <button type="button" class="btn btn-success" (click)="assignRole('3', grid.userId)">Student</button>
                 </div>
             </li>
               <!--<li class="list-inline-item me-3" title="Due Date" ngbTooltip="Due Date">

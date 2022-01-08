@@ -41,4 +41,16 @@ export class AssignRoleComponent implements OnInit {
   });
   }
 
+  assignRole(roleId, userId):any {
+    this.userService.updateUserRole(roleId, userId).subscribe({
+      next: data => {
+          console.log(data.response);
+         this.userData =  this.userData.filter(i => i.userId !== userId);
+      },error: error => {
+          
+      }
+  });
+    return null;
+  }
+
 }

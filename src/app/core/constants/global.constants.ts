@@ -35,6 +35,7 @@ export const API_ENDPOINTS = {
         API: 'roles',
         GET_ALL: '/',
         UPDATE: (roleId: string) => `/${roleId}`,
+        UPDATEUSERROLE: (roleId: string, userId: string) => `/${roleId}?userName=${userId}`,
     },
     VIDEO: {
         API: 'videos',
