@@ -8,6 +8,7 @@ import { LMSRoutingModule } from '../lms-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClickOutsideModule } from 'ng-click-outside';
+
 import { UIModule } from 'src/app/shared/ui/ui.module';
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { StoreModule } from '@ngrx/store';
@@ -25,6 +26,7 @@ import { AssignCourseComponent } from './assign-course/assign-course.component';
 import { RemoveStudentCourseComponent } from './remove-student-course/remove-student-course.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbPaginationModule, NgbAccordionModule, NgbTooltipModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -54,6 +56,8 @@ import { NgbPaginationModule, NgbAccordionModule, NgbTooltipModule, NgbModule } 
     StoreModule,
     AdminRoutingModule,
     CategoryModule,
+    FormsModule,
+    ReactiveFormsModule,
     AgGridModule.withComponents([]),
     NgbPaginationModule
   ],exports: [

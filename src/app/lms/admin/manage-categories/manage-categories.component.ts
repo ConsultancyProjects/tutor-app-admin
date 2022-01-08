@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { CategoryService } from 'src/app/shared';
 
 @Component({
@@ -8,72 +9,78 @@ import { CategoryService } from 'src/app/shared';
   styleUrls: ['./manage-categories.component.scss']
 })
 export class ManageCategoriesComponent implements OnInit {
+  breadCrumbItems: Array<{}>;
 
-   gridApi: any;
-   gridColumnApi: any;
+  form: FormGroup;
+  phoneData: FormGroup;
 
-   columnDefs: any;
-   defaultColDef: any;
-   rowData: [];
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      formlist: this.fb.array([]),
+    }),
 
-  constructor(private categoryService: CategoryService, private http: HttpClient) {
-    console.log('test test');
-    this.columnDefs = [
-      { field: 'athlete' },
-      {
-        field: 'age',
-        filter: 'agNumberColumnFilter',
-        maxWidth: 100,
-      },
-      {
-        field: 'date',
-        filter: 'agDateColumnFilter',
-        filterParams: filterParams,
-      },
-      {
-        field: 'total',
-        filter: false,
-      },
-    ];
-    this.defaultColDef = {
-      flex: 1,
-      minWidth: 150,
-      filter: true,
-    };
+    this.phoneData = this.fb.group({
+      phoneValue: this.fb.array([]),
+    });
   }
+
   ngOnInit(): void {
-    
+    this.breadCrumbItems = [{ label: 'Forms' }, { label: 'Form Repeater', active: true }];
   }
 
-  onGridReady(params) {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-
-    this.http
-      .get('https://www.ag-grid.com/example-assets/olympic-winners.json')
-      .subscribe((data) => params.api.setRowData(data));
+  formData(): FormArray {
+    return this.form.get('formlist') as FormArray;
   }
-}
 
-var filterParams = {
-  comparator: function (filterLocalDateAtMidnight, cellValue) {
-    var dateAsString = cellValue;
-    if (dateAsString == null) return -1;
-    var dateParts = dateAsString.split('/');
-    var cellDate = new Date(
-      Number(dateParts[2]),
-      Number(dateParts[1]) - 1,
-      Number(dateParts[0])
-    );
-    if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
-      return 0;
+  phonedata(): FormArray {
+    return this.phoneData.get('phoneValue') as FormArray;
+  }
+
+  phone(): FormGroup {
+    return this.fb.group({
+      phonenumber: ''
+    });
+  }
+
+  field(): FormGroup {
+    return this.fb.group({
+      name: '',
+      email: '',
+      subject: '',
+      file: '',
+      msg: '',
+    });
+  }
+
+  /**
+   * Add phone field in list
+   */
+  addPhone() {
+    this.phonedata().push(this.phone());
+  }
+
+  /**
+   * Remove field from form
+   * @param i specified index to remove
+   */
+  removeField(i: number) {
+    if (confirm('Are you sure you want to delete this element?')) {
+      this.formData().removeAt(i);
     }
-    if (cellDate < filterLocalDateAtMidnight) {
-      return -1;
-    }
-    if (cellDate > filterLocalDateAtMidnight) {
-      return 1;
-    }
-  },
-  browserDatePicker: true,
+  }
+
+  /**
+   * Delete phone field from list
+   * @param i specified index
+   */
+  deletePhone(i: number) {
+    this.phonedata().removeAt(i);
+  }
+
+  /**
+   * Add field in form
+   */
+  addField() {
+    this.formData().push(this.field());
+  }
 };

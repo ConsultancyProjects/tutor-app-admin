@@ -17,8 +17,8 @@
               <div class="mt-4 pt-3">
                  <h5 class="font-size-14 mb-3">Name</h5>
                  <div class="form-input mt-2">
-                    <input type="text" class="form-input" id="username"
-                       >
+                    <input type="text" class="form-control" id="username"
+                       />
                  </div>
               </div>
            </div>
@@ -65,7 +65,7 @@
            <table class="table project-list-table table-nowrap align-middle table-borderless">
               <thead>
                  <tr>
-                    <th scope="col" style="width: 100px">#</th>
+                    
                     <th scope="col">User Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Status</th>
@@ -75,8 +75,7 @@
               </thead>
               <tbody>
                  <tr *ngFor="let user of userData">
-                    <td>
-                    </td>
+                    
                     <td>
                        <h5 class="text-truncate font-size-14">
                           <a href="javascript: void(0);" class="text-dark">{{user.userId}}</a>
@@ -93,16 +92,9 @@
                        </div>
                     </td>
                     <td>
-                       <div class="dropdown" ngbDropdown placement="bottom-right">
-                          <a href="javascript: void(0);" class="dropdown-toggle card-drop" ngbDropdownToggle>
-                          <i class="mdi mdi-dots-horizontal font-size-18"></i>
-                          </a>
-                          <div class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
-                             <a class="dropdown-item" href="javascript: void(0);">Action</a>
-                             <a class="dropdown-item" href="javascript: void(0);">Another action</a>
-                             <a class="dropdown-item" href="javascript: void(0);">Something else here</a>
-                          </div>
-                       </div>
+
+                      <i class="bx bxs-trash h1 text-danger align-middle"></i>
+                       
                     </td>
                  </tr>
               </tbody>

@@ -1,96 +1,31 @@
+<!-- start page title -->
+<app-page-title title="Categories Repeater" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+<!-- end page title -->
 
-<div class="container-fluid">
-<div class="hold-ag-gridd">
-    
-    
-<ag-grid-angular
-#agGrid
-style="width: 100%; height: 600px;"
-id="myGrid"
-class="ag-theme-alpine"
-[columnDefs]="columnDefs"
-[defaultColDef]="defaultColDef"
-[rowData]="rowData"
-(gridReady)="onGridReady($event)"
-></ag-grid-angular>
-
-
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title mb-4">Manage Categories</h4>
+        <form class="repeater" [formGroup]="form">
+          <div formArrayName="formlist">
+            <div *ngFor="let data1 of formData().controls; let i=index;">
+              <div [formGroupName]="i" class="row">
+                <div class="mb-3 col-lg-2">
+                  <label for="name">Category Name</label>
+                  <input type="text" formControlName="name" class="form-control">
+                </div>
+                <div class="col-lg-2 align-self-center">
+                  <div class="d-grid">
+                    <input type="button" class="btn btn-primary" value="Delete" (click)="removeField(i)">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="button" class="btn btn-success mt-3 mt-lg-0" value="Add" (click)="addField()">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-
-
-<!--
-<div class="container">
-    <div class="row">
-    <div class="col-md-4 col-lg-4 d-flex flex-wrap">
-    <div class="allcourse-card">
-    <div class="allcourse-img">
-    <img src="assets/img/course/c3.jpg" alt="" class="img-fluid">
-    </div>
-    <div class="allcourse-content">
-    <h4 class="mb-3">Class 6</h4>
-    <p>Over <span class="text-warning">20</span> Courses</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-md-4 col-lg-4 d-flex flex-wrap">
-    <div class="allcourse-card">
-    <div class="allcourse-img">
-    <img src="assets/img/course/c1.jpg" alt="" class="img-fluid">
-    </div>
-    <div class="allcourse-content">
-    <h4 class="mb-3">Class 10</h4>
-    <p>Over <span class="text-warning">5</span> Courses</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-md-4 col-lg-4 d-flex flex-wrap">
-    <div class="allcourse-card">
-    <div class="allcourse-img">
-    <img src="assets/img/course/c2.jpg" alt="" class="img-fluid">
-    </div>
-    <div class="allcourse-content">
-    <h4 class="mb-3">Spanish</h4>
-    <p>Over <span class="text-warning">2</span> Courses</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-md-4 col-lg-4 d-flex flex-wrap">
-    <div class="allcourse-card">
-    <div class="allcourse-img">
-    <img src="assets/img/course/c7.jpg" alt="" class="img-fluid">
-    </div>
-    <div class="allcourse-content">
-    <h4 class="mb-3">Germany</h4>
-    <p>Over <span class="text-warning">2</span> Courses</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-md-4 col-lg-4 d-flex flex-wrap">
-    <div class="allcourse-card">
-    <div class="allcourse-img">
-    <img src="assets/img/course/c4.jpg" alt="" class="img-fluid">
-    </div>
-    <div class="allcourse-content">
-    <h4 class="mb-3">Research</h4>
-    <p>Over <span class="text-warning">2,120</span> Courses</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-md-4 col-lg-4 d-flex flex-wrap">
-    <div class="allcourse-card">
-    <div class="allcourse-img">
-    <img src="assets/img/course/c5.jpg" alt="" class="img-fluid">
-    </div>
-    <div class="allcourse-content">
-    <h4 class="mb-3">Finance</h4>
-    <p>Over <span class="text-warning">2,840</span> Courses</p>
-    </div>
-    </div>
-    </div>
-    
-    </div>
-    </div>
-
-
--->
