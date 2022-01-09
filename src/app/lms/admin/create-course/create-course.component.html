@@ -71,21 +71,23 @@
 <div class="mb-3 row">
   <label class="col-md-2 col-form-label">Category</label>
   <div class="col-md-10">
-    <div class="btn-group me-1 mt-2" ngbDropdown>
-      <button type="button" class="btn btn-primary dropdown-toggle" ngbDropdownToggle>Categories <i
-          class="mdi mdi-chevron-down"></i></button>
-      <div class="dropdown-menu" ngbDropdownMenu>
-        <a *ngFor="let category of categories" class="dropdown-item" href="javascript: void(0);" (click)="selectCategory(category.categoryId)">{{category.categoryName}}</a>
+    
+      
+          <ng-select [items]="categories"
+          bindLabel="categoryName"
+          autofocus
+          bindValue="categoryId"
+          [(ngModel)]="selectedCategory">
+        </ng-select>
         
-        <div class="dropdown-divider"></div>
         
-      </div>
+     
     </div>
   </div>
 </div>
-  </div>
+
    
-</div>
+
 </ng-template>
 <!-- Tab Content -->
 <ng-template #TabContent1>
