@@ -41,7 +41,8 @@ export class ManageCategoriesComponent implements OnInit {
   }
   field(): FormGroup {
     return this.fb.group({
-      categoryName: ''
+      categoryName: '',
+      categoryId: '0'
     });
   }
 
