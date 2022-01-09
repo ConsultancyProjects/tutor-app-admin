@@ -1,1 +1,14 @@
-eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOlt7ImF1dGhvcml0eSI6IkFETUlOIn1dLCJleHAiOjE2NDE3Nzk4MjQsImlhdCI6MTY0MTczNjYyNH0.XZvR09dwyyXZsj1qcYKBo2zWbWjzrPGAFstw12cp37k
+{
+        "videoId": 2,
+        "category": {
+            "childCategoryId": 2,
+            "name": "Chemistry",
+            "parentCategory": {
+                "categoryId": 1,
+                "categoryName": "nineth std"
+            }
+        },
+        "videoName": "9th std Chemistry",
+        "s3Path": "https://lms-tutor-application.s3.us-east-2.amazonaws.com/config/Boy%20Highlights.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220109T194059Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10799&X-Amz-Credential=AKIATVBWTLSF6EDTX56S%2F20220109%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=ed995054d72a10c64f53bf1c43789120f1b8663cd11bd1833ba717e4132609a5",
+        "createdDate": "2021-12-25T18:30:00.000+0000"
+    }
