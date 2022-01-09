@@ -28,4 +28,13 @@ export class CategoryService {
                 
             }));
     }
+    addAllCategory(categories: Category[] ) {
+        return this.http.postRequest<any>( API_ENDPOINTS.CATEGORY.API+ API_ENDPOINTS.CATEGORY.ADD, categories)
+            .pipe(map(data => {
+                
+                
+                    return data;
+                
+            }));
+    }
 }

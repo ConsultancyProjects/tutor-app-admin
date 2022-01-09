@@ -12,16 +12,12 @@ export class ManageCategoriesComponent implements OnInit {
   breadCrumbItems: Array<{}>;
 
   form: FormGroup;
-  phoneData: FormGroup;
   categories: VideoCategory[];
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private categoryService: CategoryService) {
     this.form = this.fb.group({
-      formlist: this.fb.array([]),
-    }),
-
-    this.phoneData = this.fb.group({
-      phoneValue: this.fb.array([]),
+      formlist: this.fb.array([])
     });
+
   }
 
   ngOnInit(): void {
@@ -31,14 +27,21 @@ export class ManageCategoriesComponent implements OnInit {
   formData(): FormArray {
     return this.form.get('formlist') as FormArray;
   }
+  saveCategories(): boolean {
+    let someData = this.form.get('formlist').value;
+    this.categoryService.addAllCategory(someData).subscribe({
+      next: data => {
+        console.log(data);
+      },
+      error: error => {
 
+      }
+    })
+    return true;
+  }
   field(): FormGroup {
     return this.fb.group({
-      name: '',
-      email: '',
-      subject: '',
-      file: '',
-      msg: '',
+      categoryName: ''
     });
   }
 

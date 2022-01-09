@@ -12,8 +12,8 @@
             <div *ngFor="let data1 of formData().controls; let i=index;">
               <div [formGroupName]="i" class="row">
                 <div class="mb-3 col-lg-6">
-                  <label for="name">Category Name</label>
-                  <input type="text" formControlName="name" class="form-control">
+                  <label for="categoryName">Category Name</label>
+                  <input type="text" formControlName="categoryName" class="form-control">
                 </div>
                 <div class="col-lg-6 align-self-center">
                   <div class="d-grid">
@@ -27,7 +27,7 @@
           </div>
         </form>
         <div class="float-end">
-          <button class="btn btn-primary w-md ms-1">Save</button>
+          <button class="btn btn-primary w-md ms-1" (click)="saveCategories()">Save</button>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title mb-4">Manage Categories</h4>
-        <form class="repeater" [formGroup]="form">
+        <!--<form class="repeater" [formGroup]="form">
           <div formArrayName="formlist">
             <div *ngFor="let data1 of formData().controls; let i=index;">
               <div [formGroupName]="i" class="row">
@@ -54,9 +54,9 @@
             <input type="button" class="btn btn-success mt-3 mt-lg-0" value="Add" (click)="addField()">
             
           </div>
-        </form>
+        </form> -->
         <div class="float-end">
-          <button class="btn btn-primary w-md ms-1">Save</button>
+          <button class="btn btn-primary w-md ms-1" >Save</button>
         </div>
       </div>
     </div>
