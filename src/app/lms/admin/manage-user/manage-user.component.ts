@@ -45,6 +45,7 @@ export class ManageUserComponent implements OnInit, OnChanges {
   }
 
   filterGrid(event: Event):boolean {
+    
     let finalUserData = [];
     if (this.username.trim().length != 0) {
       finalUserData = this.onLoadUserData.filter(i => i.name.startsWith(this.username));
