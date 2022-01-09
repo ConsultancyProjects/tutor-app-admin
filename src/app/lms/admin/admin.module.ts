@@ -6,9 +6,15 @@ import { AdminVerticalSidebarComponent } from './admin-vertical-sidebar/admin-ve
 import { RouterModule } from '@angular/router';
 import { LMSRoutingModule } from '../lms-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { ClickOutsideModule } from 'ng-click-outside';
 
+import { ClickOutsideModule } from 'ng-click-outside';
+import {
+  NgbAlertModule, NgbCarouselModule, NgbDropdownModule, NgbModalModule, NgbProgressbarModule,
+  NgbTooltipModule, NgbPopoverModule, NgbPaginationModule, NgbNavModule, NgbAccordionModule,
+  NgbCollapseModule
+} from '@ng-bootstrap/ng-bootstrap';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { AgmCoreModule } from '@agm/core';
 import { UIModule } from 'src/app/shared/ui/ui.module';
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { StoreModule } from '@ngrx/store';
@@ -25,7 +31,7 @@ import { ManageStudentsComponent } from './manage-students/manage-students.compo
 import { AssignCourseComponent } from './assign-course/assign-course.component';
 import { RemoveStudentCourseComponent } from './remove-student-course/remove-student-course.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgbPaginationModule, NgbAccordionModule, NgbTooltipModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {  NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
@@ -65,7 +71,18 @@ import { ViewCoursesComponent } from './view-courses/view-courses.component';
     FormsModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([]),
+    NgbAlertModule,
+    NgbCarouselModule,
+    NgbDropdownModule,
+    NgbModalModule,
+    NgbProgressbarModule,
+    NgbTooltipModule,
+    NgbPopoverModule,
     NgbPaginationModule,
+    NgbNavModule,
+    NgbAccordionModule,
+    NgbCollapseModule,
+    NgxYoutubePlayerModule
   ],exports: [
     AdminNavComponent,
     AdminHorizTopbarComponent,

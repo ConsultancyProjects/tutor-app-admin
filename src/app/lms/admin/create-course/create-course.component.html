@@ -1,10 +1,56 @@
 
-<div class="row "><div class="col-lg-4">
+
+    <!-- start page title -->
+    <app-page-title title="Courses" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <!-- end page title -->
+  
+    <div class="row">
+    <div class="row "><div class="col-lg-12">
     <div class="card">
-      <div class="card-header bg-transparent border-bottom ">
-        Create Course
-      </div>
+      
       <div class="card-body">
+        <ul ngbNav #customNav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom nav-justified">
+          <li [ngbNavItem]="1">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+              <span class="d-none d-sm-block">Create Course</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="2">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
+              <span class="d-none d-sm-block">Tutor</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent1"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="3">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+              <span class="d-none d-sm-block">ABCD</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="4">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+              <span class="d-none d-sm-block">Settings</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent1"></ng-template>
+            </ng-template>
+          </li>
+        </ul>
+        <div [ngbNavOutlet]="customNav"></div>
+        </div>
+
+  <div class="row">
         <blockquote class="card-blockquote mb-0">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
             erat a ante.</p>
@@ -15,4 +61,27 @@
       </div>
     </div>
   </div>
-</div>
+  <ng-template #TabContent>
+    <p class="p-3 mb-0">
+      Raw denim you probably haven't heard of them jean shorts Austin.
+      Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
+      cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+      butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi,
+      qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+      iphone. Seitan aliquip quis cardigan american apparel, butcher
+      voluptate nisi qui.
+    </p>
+  </ng-template>
+
+  <!-- Tab Content -->
+  <ng-template #TabContent1>
+    <p class="p-3 mb-0">
+      Food truck fixie locavore, accusamus mcsweeney's marfa nulla
+      single-origin coffee squid. Exercitation +1 labore velit, blog
+      sartorial PBR leggings next level wes anderson artisan four loko
+      farm-to-table craft beer twee. Qui photo booth letterpress,
+      commodo enim craft beer mlkshk aliquip jean shorts ullamco ad
+      vinyl cillum PBR. Homo nostrud organic, assumenda labore
+      aesthetic magna delectus.
+    </p>
+  </ng-template>

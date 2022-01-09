@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCourseComponent implements OnInit {
 
+  breadCrumbItems: Array<{}>;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.breadCrumbItems = [{ label: 'Create Courses' }, { label: 'Courses', active: true }];
   }
-
 }
+
