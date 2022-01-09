@@ -11,6 +11,7 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 
 
+import { ToastrModule } from 'ngx-toastr';
 
 
 import { LmsModule } from './lms/lms.module';
@@ -77,7 +78,9 @@ export const reducers: ActionReducerMap<any> = {
     EffectsModule.forRoot([UserEffects, CategoryEffects]),
     ScrollToModule.forRoot(),
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   bootstrap: [AppComponent],
   providers: [

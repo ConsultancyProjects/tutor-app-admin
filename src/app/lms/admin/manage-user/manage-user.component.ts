@@ -1,5 +1,4 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { User, UserService } from 'src/app/shared';
 @Component({
   selector: 'app-manage-user',
