@@ -7,6 +7,7 @@ import { environment } from '../../../../environments/environment';
 import { catchError, first, map } from 'rxjs/operators';
 import { UserProfileService } from '../../../core/services/user.service';
 import { APIAuthenticationService, ROUTES } from 'src/app/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -27,7 +28,8 @@ export class SignupComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router,
     private authenticationService: AuthenticationService,
     private authService: APIAuthenticationService,
-    private userService: UserProfileService) { }
+    private userService: UserProfileService,
+    private toasterService : ToastrService) { }
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
@@ -54,8 +56,13 @@ export class SignupComponent implements OnInit {
       this.authService.register(this.signupForm.value).subscribe(
       {
         next: data => {
-            if(data.status == 'Success') 
-            this.router.navigate([ROUTES.ACCOUNT_LOGIN]);
+            if(data.response == 'Success') {
+              this.router.navigate([ROUTES.ACCOUNT_LOGIN]);
+              this.toasterService.success(
+                'SuccessFully Registered, Please inform Admin for Access', 'Success',
+                 { positionClass: 'toast-top-right' });
+            }
+            
         },
         error: error => {
             this.error = error; 
