@@ -29,7 +29,8 @@ export const API_ENDPOINTS = {
     CATEGORY : {
         API: 'video-categories',
         GET_ALL : '/',
-        ADD : '/'
+        ADD : '/',
+        ADD_ALL : '/all'
     },
     ROLE: {
         API: 'roles',
