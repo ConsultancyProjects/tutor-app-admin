@@ -14,15 +14,18 @@ export class ManageCategoriesComponent implements OnInit {
   form: FormGroup;
   categories: VideoCategory[];
   constructor(private fb: FormBuilder, private categoryService: CategoryService) {
-    this.form = this.fb.group({
-      formlist: this.fb.array([])
-    });
+    
 
   }
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Categories' }, { label: 'Manage Category', active: true }];
     this.loadCategories();
+  }
+  initCategories(): any {
+    this.form = this.fb.group({
+      formlist: this.fb.array([])
+    });
   }
   loadCategories(): any {
     this.categoryService.getAll().subscribe({
@@ -41,7 +44,7 @@ export class ManageCategoriesComponent implements OnInit {
     let someData = this.form.get('formlist').value;
     this.categoryService.addAllCategory(someData).subscribe({
       next: data => {
-        
+        this.initCategories();
         this.loadCategories();
       },
       error: error => {

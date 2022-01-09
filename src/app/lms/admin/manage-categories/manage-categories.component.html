@@ -16,7 +16,6 @@
             <div *ngFor="let data1 of formData().controls; let i=index;">
               <div [formGroupName]="i" class="row">
                 <div class="mb-3 col-lg-6">
-                  
                   <input type="text" formControlName="categoryName" class="form-control">
                   <input type="hidden" formControlName="categoryId" class="form-control" style="display:none;">
                 </div>
@@ -44,7 +43,6 @@
         <div *ngFor="let catty of categories; let i=index;">
           <div class="row">
             <div class="mb-3 col-lg-6">
-              
               <h5>{{catty.categoryName}}</h5>
               <input type="hidden" value="{{catty.categoryId}}" class="form-control" style="display:none;">
             </div>
