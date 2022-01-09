@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoryService } from 'src/app/shared';
 
 @Component({
@@ -13,6 +13,7 @@ export class CreateCourseComponent implements OnInit, OnChanges {
   categories: Array<{}>;
   selectedCategory: any;
   videosForm: any;
+  courseForm: FormGroup;
   constructor(private categoryService: CategoryService,
     private fb: FormBuilder) { 
 
@@ -29,10 +30,17 @@ export class CreateCourseComponent implements OnInit, OnChanges {
   }
   ngOnInit() {
     this.initVideos();
+    this.initCourseForm();
     this.breadCrumbItems = [{ label: 'Create Courses' }, { label: 'Courses', active: true }];
     this.loadCategories();
   }
-
+  initCourseForm() {
+    this.courseForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      overview: new FormControl('', Validators.required)
+    });
+  }
   initVideos(): any {
     this.videosForm = this.fb.group({
       videosList: this.fb.array([])
@@ -64,6 +72,9 @@ export class CreateCourseComponent implements OnInit, OnChanges {
       categoryName: '',
       categoryId: '0'
     });
+  }
+  saveCourse(): any {
+    return this.courseForm.value();
   }
 }
 

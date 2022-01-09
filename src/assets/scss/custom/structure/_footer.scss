@@ -5,18 +5,20 @@
 .footer {
     bottom: 0;
     padding: 20px calc(#{$grid-gutter-width} / 2);
-    //position: absolute;
+    position: fixed;
     right: 0;
     color: $footer-color;
     left: 250px;
+    z-index: 10000;
     height: $footer-height;
     background-color: $footer-bg;
-
     @media (max-width: 991.98px) {
         left: 0;
     }
 }
-  
+.footer-wrapper {
+    height: $footer-height;
+}
 // Enlarge menu
 .vertical-collpsed {
     .footer {
