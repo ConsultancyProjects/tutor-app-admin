@@ -5,9 +5,8 @@ import { IEnvironment } from "./environment.model";
 import { ApplicationEnvironmentConfig } from "./default.environment";
 export const environment: IEnvironment = {
   ...ApplicationEnvironmentConfig,
-  
-  production: false,
-
+  apiHostURL: 'http://18.224.68.237:8081',
+  production: false
 };
 
 
