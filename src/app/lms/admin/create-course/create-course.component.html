@@ -2,102 +2,117 @@
 <app-page-title title="Courses" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 <!-- end page title -->
 <div class="row ">
-<div class="col-lg-12">
-<div class="card">
-   <div class="card-body">
-      <ul ngbNav #customNav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom nav-justified">
-      <li [ngbNavItem]="1">
-         <a ngbNavLink>
-         <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-         <span class="d-none d-sm-block">Create Course</span>
-         </a>
-         <ng-template ngbNavContent>
-            <ng-template [ngTemplateOutlet]="TabContent"></ng-template>
-         </ng-template>
-      </li>
-      <li [ngbNavItem]="2">
-         <a ngbNavLink>
-         <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
-         <span class="d-none d-sm-block">Tutor</span>
-         </a>
-         <ng-template ngbNavContent>
-            <ng-template [ngTemplateOutlet]="TabContent1"></ng-template>
-         </ng-template>
-      </li>
-      <li [ngbNavItem]="3">
-         <a ngbNavLink>
-         <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-         <span class="d-none d-sm-block">ABCD</span>
-         </a>
-         <ng-template ngbNavContent>
-            <ng-template [ngTemplateOutlet]="TabContent"></ng-template>
-         </ng-template>
-      </li>
-      <li [ngbNavItem]="4">
-         <a ngbNavLink>
-         <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-         <span class="d-none d-sm-block">Settings</span>
-         </a>
-         <ng-template ngbNavContent>
-            <ng-template [ngTemplateOutlet]="TabContent1"></ng-template>
-         </ng-template>
-      </li>
-      </ul>
-      <div [ngbNavOutlet]="customNav"></div>
-   </div>
-   <div class="row">
-      <blockquote class="card-blockquote mb-0">
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-            erat a ante.
-         </p>
-         <footer class="blockquote-footer font-size-12 mt-0">
-            Someone famous in <cite title="Source Title">Source Title</cite>
-         </footer>
-      </blockquote>
-   </div>
-</div>
-<ng-template #TabContent>
-  <div class="card">
-    <div class="card-body">
-   <h4 class="card-title">Course Information</h4>
-   <p class="card-title-desc">Some Text about Course</p>
-   <div class="mb-3 row">
-    <label for="course-text-input" class="col-md-2 col-form-label">Course Name</label>
-    <div class="col-md-10">
-        <input class="form-control" type="text" placeholder="Course Name" id="course-text-input">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <ul ngbNav #customNav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom nav-justified">
+          <li [ngbNavItem]="1">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none">
+                <i class="fas fa-home"></i>
+              </span>
+              <span class="d-none d-sm-block">Create Course</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="2">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none">
+                <i class="far fa-user"></i>
+              </span>
+              <span class="d-none d-sm-block">Tutor</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent1"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="3">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none">
+                <i class="far fa-envelope"></i>
+              </span>
+              <span class="d-none d-sm-block">ABCD</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="4">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none">
+                <i class="fas fa-cog"></i>
+              </span>
+              <span class="d-none d-sm-block">Settings</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent1"></ng-template>
+            </ng-template>
+          </li>
+        </ul>
+        <div [ngbNavOutlet]="customNav"></div>
+      </div>
+      <div class="row">
+        <blockquote class="card-blockquote mb-0">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. </p>
+          <footer class="blockquote-footer font-size-12 mt-0"> Someone famous in <cite title="Source Title">Source Title</cite>
+          </footer>
+        </blockquote>
+      </div>
     </div>
-</div>
+    <ng-template #TabContent>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Course Information</h4>
+          <p class="card-title-desc">Some Text about Course</p>
+          <div class="mb-3 row">
+            <label for="course-text-input" class="col-md-2 col-form-label">Course Name</label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" placeholder="Course Name" id="course-text-input">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-md-2 col-form-label">Category</label>
+            <div class="col-md-10">
+              <ng-select [items]="categories" bindLabel="categoryName" autofocus bindValue="categoryId" [(ngModel)]="selectedCategory"></ng-select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-md-2 col-form-label">Overview</label>
+            <div class="col-md-10">
+              <textarea class="form-control" type="textarea" placeholder="Overvew" id="course-textarea-input"></textarea>
+            </div>
+          </div>
 
-<div class="mb-3 row">
-  <label class="col-md-2 col-form-label">Category</label>
-  <div class="col-md-10">
-    
-      
-          <ng-select [items]="categories"
-          bindLabel="categoryName"
-          autofocus
-          bindValue="categoryId"
-          [(ngModel)]="selectedCategory">
-        </ng-select>
-        
-        
-     
-    </div>
-  </div>
-</div>
-
-   
-
-</ng-template>
-<!-- Tab Content -->
-<ng-template #TabContent1>
-   <p class="p-3 mb-0">
-      Food truck fixie locavore, accusamus mcsweeney's marfa nulla
-      single-origin coffee squid. Exercitation +1 labore velit, blog
-      sartorial PBR leggings next level wes anderson artisan four loko
-      farm-to-table craft beer twee. Qui photo booth letterpress,
-      commodo enim craft beer mlkshk aliquip jean shorts ullamco ad
-      vinyl cillum PBR. Homo nostrud organic, assumenda labore
-      aesthetic magna delectus.
-   </p>
-</ng-template>
+          <form class="repeater" [formGroup]="videosForm">
+            <div formArrayName="videosList">
+              <div *ngFor="let data1 of formData().controls; let i=index;">
+                <div [formGroupName]="i" class="row">
+                  <div class="col-lg-6 input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Upload video</span>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" >
+                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                  </div>
+                  <div class="mb-3 col-lg-6 align-self-center">
+                    <div class="d-grid">
+                      <input type="button" class="btn btn-primary" value="Delete" (click)="removeField(i)">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <input type="button" class="btn btn-success mt-3 mt-lg-0" value="Add Video " (click)="addField()">
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </ng-template>
+    <!-- Tab Content -->
+    <ng-template #TabContent1>
+      <p class="p-3 mb-0"> Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus. </p>
+    </ng-template>

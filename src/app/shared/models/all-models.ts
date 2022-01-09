@@ -11,6 +11,7 @@ export interface ChildVideoCategory {
     childCategoryId: number;
     name: string;
     parentCategory: VideoCategory;
+    overview: string;
 }
 
 export interface VideoCategory {

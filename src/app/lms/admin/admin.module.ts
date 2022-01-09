@@ -24,6 +24,7 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
 import { ManageCategoriesComponent } from './manage-categories/manage-categories.component';
 import { AssignRoleComponent } from './assign-role/assign-role.component';
 import { AgGridModule } from 'ag-grid-angular';
+
 import { HomeComponent } from './home/home.component';
 import { ManageTutorsComponent } from './manage-tutors/manage-tutors.component';
 import { ReassignTutorsComponent } from './reassign-tutors/reassign-tutors.component';
@@ -36,7 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { ViewCoursesComponent } from './view-courses/view-courses.component';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { ViewCoursesComponent } from './view-courses/view-courses.component';
     UIModule,
     SimplebarAngularModule,
     StoreModule,
+    NgSelectModule,
     AdminRoutingModule,
     CategoryModule,
     FormsModule,

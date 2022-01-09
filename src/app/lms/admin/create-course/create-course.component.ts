@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { CategoryService } from 'src/app/shared';
 
 @Component({
@@ -11,7 +12,9 @@ export class CreateCourseComponent implements OnInit, OnChanges {
   breadCrumbItems: Array<{}>;
   categories: Array<{}>;
   selectedCategory: any;
-  constructor(private categoryService: CategoryService) { 
+  videosForm: any;
+  constructor(private categoryService: CategoryService,
+    private fb: FormBuilder) { 
 
   }
   loadCategories(): void {
@@ -25,15 +28,42 @@ export class CreateCourseComponent implements OnInit, OnChanges {
     });
   }
   ngOnInit() {
+    this.initVideos();
     this.breadCrumbItems = [{ label: 'Create Courses' }, { label: 'Courses', active: true }];
     this.loadCategories();
   }
+
+  initVideos(): any {
+    this.videosForm = this.fb.group({
+      videosList: this.fb.array([])
+    });
+  }
   ngOnChanges(changes: SimpleChanges): void {
     this.loadCategories();
+    
   }
   selectCategory(categoryId: any): boolean {
     this.selectedCategory = categoryId;
     return true;
+  }
+
+  formData(): FormArray {
+    return this.videosForm.get('videosList') as FormArray;
+  }
+
+  removeField(i: number) {
+    if (confirm('Are you sure you want to delete this element?')) {
+      this.formData().removeAt(i);
+    }
+  }
+  addField() {
+    this.formData().push(this.field());
+  }
+  field(): FormGroup {
+    return this.fb.group({
+      categoryName: '',
+      categoryId: '0'
+    });
   }
 }
 

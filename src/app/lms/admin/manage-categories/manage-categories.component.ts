@@ -19,6 +19,7 @@ export class ManageCategoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initCategories();
     this.breadCrumbItems = [{ label: 'Categories' }, { label: 'Manage Category', active: true }];
     this.loadCategories();
   }
