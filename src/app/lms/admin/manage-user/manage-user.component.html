@@ -93,11 +93,11 @@
                     <td>
                        <div class="btn-group" role="group" aria-label="Assign Role">
                           <button type="button" class="btn btn-success" 
-                          [ngClass]="{'active': user.role.id == '1'}" (click)="updateRole('1', user.userId)">Admin</button>
+                          [ngClass]="{'active': user.role?.id == '1'}" (click)="updateRole('1', user.userId)">Admin</button>
                           <button type="button" class="btn btn-success" (click)="updateRole('2', user.userId)"
-                          [ngClass]="{'active': user.role.id == '2'}">Tutor</button>
+                          [ngClass]="{'active': user.role?.id == '2'}">Tutor</button>
                           <button type="button" class="btn btn-success" (click)="updateRole('3', user.userId)"
-                           [ngClass]="{'active': user.role.id == '3'}">Student</button>
+                           [ngClass]="{'active': user.role?.id == '3'}">Student</button>
                        </div>
 
                        

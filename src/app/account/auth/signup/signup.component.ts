@@ -57,10 +57,10 @@ export class SignupComponent implements OnInit {
       {
         next: data => {
             if(data.response == 'Success') {
-              this.router.navigate([ROUTES.ACCOUNT_LOGIN]);
               this.toasterService.success(
                 'SuccessFully Registered, Please inform Admin for Access', 'Success',
                  { positionClass: 'toast-top-right' });
+              setTimeout( () => { this.router.navigate([ROUTES.ACCOUNT_LOGIN]); }, 1000 );
             }
             
         },
