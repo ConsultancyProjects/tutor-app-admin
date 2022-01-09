@@ -10,6 +10,7 @@ export class CreateCourseComponent implements OnInit, OnChanges {
 
   breadCrumbItems: Array<{}>;
   categories: Array<{}>;
+  selectedCategory: any;
   constructor(private categoryService: CategoryService) { 
 
   }
@@ -29,6 +30,10 @@ export class CreateCourseComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     this.loadCategories();
+  }
+  selectCategory(categoryId: any): boolean {
+    this.selectedCategory = categoryId;
+    return true;
   }
 }
 
