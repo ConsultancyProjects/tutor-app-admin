@@ -22,8 +22,18 @@ export class ManageCategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Categories' }, { label: 'Manage Category', active: true }];
+    this.loadCategories();
   }
+  loadCategories(): any {
+    this.categoryService.getAll().subscribe({
+      next: data => {
+        this.categories = data;
+      },
+      error: error => {
 
+      }
+    });
+  }
   formData(): FormArray {
     return this.form.get('formlist') as FormArray;
   }
@@ -31,12 +41,13 @@ export class ManageCategoriesComponent implements OnInit {
     let someData = this.form.get('formlist').value;
     this.categoryService.addAllCategory(someData).subscribe({
       next: data => {
-        console.log(data);
+        
+        this.loadCategories();
       },
       error: error => {
 
       }
-    })
+    });
     return true;
   }
   field(): FormGroup {
@@ -51,7 +62,17 @@ export class ManageCategoriesComponent implements OnInit {
       this.formData().removeAt(i);
     }
   }
+  removeCategory(categoryId: string) {
+    this.categoryService.deleteCategory(categoryId).subscribe({
+      next: data => {
+        console.log(data);
+        this.loadCategories();
+      },
+      error: error => {
 
+      }
+    })
+  }
   addField() {
     this.formData().push(this.field());
   }

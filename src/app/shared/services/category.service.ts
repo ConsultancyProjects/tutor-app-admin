@@ -22,19 +22,21 @@ export class CategoryService {
     addCategory(category: Category ) {
         return this.http.postRequest<any>( API_ENDPOINTS.CATEGORY.API+ API_ENDPOINTS.CATEGORY.ADD, category)
             .pipe(map(data => {
-                
-                
                     return data;
                 
             }));
     }
     addAllCategory(categories: Category[] ) {
-        return this.http.postRequest<any>( API_ENDPOINTS.CATEGORY.API+ API_ENDPOINTS.CATEGORY.ADD, categories)
+        return this.http.postRequest<any>( API_ENDPOINTS.CATEGORY.API+ API_ENDPOINTS.CATEGORY.ADD_ALL, categories)
             .pipe(map(data => {
-                
-                
                     return data;
                 
+            }));
+    }
+    deleteCategory(categoryId: string ) {
+        return this.http.deleteRequest<any>( API_ENDPOINTS.CATEGORY.API+ API_ENDPOINTS.CATEGORY.DELETE(categoryId))
+            .pipe(map(data => {
+                    return data;
             }));
     }
 }

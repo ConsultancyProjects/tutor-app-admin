@@ -28,9 +28,10 @@ export const API_ENDPOINTS = {
     REGISTER: `register`,
     CATEGORY : {
         API: 'video-categories',
-        GET_ALL : '/',
-        ADD : '/',
-        ADD_ALL : '/all'
+        GET_ALL: '/',
+        ADD: '/',
+        ADD_ALL: '/all',
+        DELETE: (categoryId: string) => `/?categoryId=${categoryId}`
     },
     ROLE: {
         API: 'roles',
