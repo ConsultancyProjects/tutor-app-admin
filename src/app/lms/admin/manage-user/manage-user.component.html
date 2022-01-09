@@ -1,7 +1,7 @@
 
   <app-page-title title="Users List" [breadcrumbItems]="breadCrumbItems"></app-page-title>
   <div class="row">
-     <div class="col-lg-3">
+     <div class="col-lg-2">
         <div class="card">
            <div class="card-body">
               <h4 class="card-title mb-4">Filter</h4>
@@ -65,7 +65,7 @@
         </div> -->
         
     
-  <div class="col-lg-9">
+  <div class="col-lg-10">
      <div class>
         <div class="table-responsive">
            <table class="table project-list-table table-nowrap align-middle table-borderless">
@@ -93,11 +93,11 @@
                     <td>
                        <div class="btn-group" role="group" aria-label="Assign Role">
                           <button type="button" class="btn btn-success" 
-                          [ngClass]="{'active': user.role.id == '1'}" (click)="updateRole('1', user.userId)">Admin</button>
+                          [ngClass]="{'active': user.role?.id == '1'}" (click)="updateRole('1', user.userId)">Admin</button>
                           <button type="button" class="btn btn-success" (click)="updateRole('2', user.userId)"
-                          [ngClass]="{'active': user.role.id == '2'}">Tutor</button>
+                          [ngClass]="{'active': user.role?.id == '2'}">Tutor</button>
                           <button type="button" class="btn btn-success" (click)="updateRole('3', user.userId)"
-                           [ngClass]="{'active': user.role.id == '3'}">Student</button>
+                           [ngClass]="{'active': user.role?.id == '3'}">Student</button>
                        </div>
 
                        
