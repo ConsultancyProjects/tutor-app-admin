@@ -38,6 +38,7 @@ import { CreateCourseComponent } from './create-course/create-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { ViewCoursesComponent } from './view-courses/view-courses.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ManageSubcategoriesComponent } from './manage-subcategories/manage-subcategories.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     RemoveStudentCourseComponent,
     CreateCourseComponent,
     EditCourseComponent,
-    ViewCoursesComponent
+    ViewCoursesComponent,
+    ManageSubcategoriesComponent
   ],
   imports: [
     CommonModule,

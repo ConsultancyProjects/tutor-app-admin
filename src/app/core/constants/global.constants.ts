@@ -21,7 +21,9 @@ export const GENERIC_CONSTANTS = {
     LOGGEDIN_TOKEN: 'LOGGEDIN_TOKEN'
 }
 
-
+export const ROLES = {
+    
+}
 export const API_ENDPOINTS = {
     
     LOGIN: `login`,

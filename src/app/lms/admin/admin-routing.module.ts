@@ -9,6 +9,7 @@ import { CreateCourseComponent } from './create-course/create-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { ManageCategoriesComponent } from './manage-categories/manage-categories.component';
 import { ManageStudentsComponent } from './manage-students/manage-students.component';
+import { ManageSubcategoriesComponent } from './manage-subcategories/manage-subcategories.component';
 import { ManageTutorsComponent } from './manage-tutors/manage-tutors.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { ReassignTutorsComponent } from './reassign-tutors/reassign-tutors.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
     
    // { path: 'categories', loadChildren: () => import('../category/category.module').then(m => m.CategoryModule) },
    { path: 'manageCategories', component: ManageCategoriesComponent },
+   { path: 'manageSubCategories', component: ManageSubcategoriesComponent },
    { path: 'manageUsers', component: ManageUserComponent },
    { path: 'assignRole', component: AssignRoleComponent },
    { path: 'manageTutors', component: ManageTutorsComponent },

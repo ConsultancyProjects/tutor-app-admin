@@ -10,6 +10,8 @@ export class User {
 }
 
 
-export class Role {
-    
+export const Role = {
+    ADMIN: 'ADMIN',
+    TUTOR: 'TUTOR',
+    STUDENT: 'STUDENT'
 }

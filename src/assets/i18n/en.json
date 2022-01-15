@@ -115,11 +115,12 @@
 		"MENU": {
 			"TEXT": "Menu"
 		},
-		"DASHBOARDS": {
+		"CATEGORIES": {
 			"TEXT": "Category",
 			"BADGE": "04",
 			"LIST": {
-				"DEFAULT": "Manage Categories"
+				"PARENT": "Manage Categories",
+				"SUB": " Manage Sub Categories"
 			}
 		},
 		"COURSES": {

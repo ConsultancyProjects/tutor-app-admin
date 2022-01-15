@@ -3,13 +3,19 @@ import { MenuItem } from 'src/app/shared';
 export const MENU: MenuItem[] = [
     {
         id: 1,
-        label: 'MENUITEMS.DASHBOARDS.TEXT',
+        label: 'MENUITEMS.CATEGORIES.TEXT',
         icon: 'bx-home-circle',
         subItems: [
             {
                 id: 2,
-                label: 'MENUITEMS.DASHBOARDS.LIST.DEFAULT',
+                label: 'MENUITEMS.CATEGORIES.LIST.PARENT',
                 link: 'manageCategories',
+                parentId: 1
+            },
+            {
+                id: 3,
+                label: 'MENUITEMS.CATEGORIES.LIST.SUB',
+                link: 'manageSubCategories',
                 parentId: 1
             }
         ]
