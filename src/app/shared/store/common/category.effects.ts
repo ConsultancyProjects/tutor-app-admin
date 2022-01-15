@@ -15,15 +15,6 @@ export class CategoryEffects {
   }
 
   
-  getAllCategories$: Observable<Action> = createEffect(() => {
-    return this
-    .actions$.pipe(
-      ofType(categoryActions.GET_CATEGORIES),
-      switchMap(() => this.svc.getAll()),
-      map(result => new GetAllCategoriesSuccessAction(result)),
-      catchError((err) => [new GetAllCategoriesErrorAction(err)])
-    );
-  });
 
   addCategory$: Observable<Action> = createEffect(() => {
     return this
