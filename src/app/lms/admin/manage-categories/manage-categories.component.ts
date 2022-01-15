@@ -82,4 +82,4 @@ export class ManageCategoriesComponent implements OnInit {
   addField() {
     this.formData().push(this.field());
   }
-};
+}

@@ -7,6 +7,7 @@ import { AssignCourseComponent } from './assign-course/assign-course.component';
 import { AssignRoleComponent } from './assign-role/assign-role.component';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
+import { ManageBatchComponent } from './manage-batch/manage-batch.component';
 import { ManageCategoriesComponent } from './manage-categories/manage-categories.component';
 import { ManageStudentsComponent } from './manage-students/manage-students.component';
 import { ManageSubcategoriesComponent } from './manage-subcategories/manage-subcategories.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
    { path: 'manageUsers', component: ManageUserComponent },
    { path: 'assignRole', component: AssignRoleComponent },
    { path: 'manageTutors', component: ManageTutorsComponent },
+   { path: 'manageBatch', component: ManageBatchComponent },
    { path: 'reassignTutors', component: ReassignTutorsComponent },
    { path: 'manageStudents', component: ManageStudentsComponent },
    { path: 'assignCourse', component: AssignCourseComponent },
