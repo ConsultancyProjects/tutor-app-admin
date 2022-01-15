@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoryService, VideoCategory } from 'src/app/shared';
 
 @Component({
@@ -42,6 +41,9 @@ export class ManageCategoriesComponent implements OnInit {
     return this.form.get('formlist') as FormArray;
   }
   saveCategories(): boolean {
+    if(this.form.get('formlist').status == 'INVALID') {
+      return false;
+    }
     let someData = this.form.get('formlist').value;
     this.categoryService.addAllCategory(someData).subscribe({
       next: data => {
@@ -56,7 +58,7 @@ export class ManageCategoriesComponent implements OnInit {
   }
   field(): FormGroup {
     return this.fb.group({
-      categoryName: '',
+      categoryName: ['', Validators.required],
       categoryId: '0'
     });
   }

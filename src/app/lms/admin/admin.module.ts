@@ -39,6 +39,7 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 import { ViewCoursesComponent } from './view-courses/view-courses.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ManageSubcategoriesComponent } from './manage-subcategories/manage-subcategories.component';
+import { ManageBatchComponent } from './manage-batch/manage-batch.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ManageSubcategoriesComponent } from './manage-subcategories/manage-subc
     CreateCourseComponent,
     EditCourseComponent,
     ViewCoursesComponent,
-    ManageSubcategoriesComponent
+    ManageSubcategoriesComponent,
+    ManageBatchComponent
   ],
   imports: [
     CommonModule,

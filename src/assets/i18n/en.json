@@ -131,6 +131,12 @@
 				"EDITCOURSE": "Edit a Course",
 				"VIEWCOURSES": "View all Courses"
 			}
+		},"BATCH": {
+			"TEXT": "Batch",
+			"BADGE": "04",
+			"LIST": {
+				"MANAGEBATCH": "Manage Batch"
+			}
 		},
 		"LAYOUTS": {
 			"TEXT": "Layouts",

@@ -44,6 +44,19 @@ export const MENU: MenuItem[] = [
         ]
     },
     {
+        id: 1,
+        label: 'MENUITEMS.BATCH.TEXT',
+        icon: 'bx-users',
+        subItems: [
+            {
+                id: 2,
+                label: 'MENUITEMS.BATCH.LIST.MANAGEBATCH',
+                link: 'manageBatch',
+                parentId: 1
+            }
+        ]
+    },
+    {
         id: 6,
         label: 'MENUITEMS.TUTORS.TEXT',
         icon: 'bx-tone',

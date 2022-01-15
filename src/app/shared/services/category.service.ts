@@ -15,7 +15,6 @@ export class CategoryService {
         return this.http.getAll<any>({ url: API_ENDPOINTS.CATEGORY.API+ API_ENDPOINTS.CATEGORY.GET_ALL, payload: null})
             .pipe(map(data => {
                      return data;
-                
             }));
     }
 
