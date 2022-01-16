@@ -60,6 +60,7 @@ export const API_ENDPOINTS = {
         GET_ALL_CHILD_VIDEO_CATEGORIES: `/`,
         GET_ALL_VIDEO_CATEGORIES_BY_PARENT_CATEGORY_ID: (parentCategoryId: any) => `/${parentCategoryId}`,
         ADD_CHILD_VIDEO_CATEGORY: '/',
+        ADD_ALL_CHILD_VIDEO_CATEGORY: '/all',
         UPDATE_CHILD_VIDEO_CATEGORY: '/',
     },
     USER_VIDEO_CATEGORY: {

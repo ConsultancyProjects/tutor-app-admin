@@ -28,19 +28,24 @@ export class ManageSubcategoriesComponent implements OnInit {
     this.initCategories();
     this.breadCrumbItems = [{ label: 'Sub Categories' }, { label: 'Manage Sub Category', active: true }];
     this.loadCategories();
-    this.loadCategories();
     this.formSubmitted = false;
   }
   initCategories(): any {
     this.form = this.fb.group({
+      categoryId:0,
+      categoryName: ['', Validators.required],
       formlist: this.fb.array([])
     });
   }
   validateForm(): any {
     let subCForm = this.form.get('formlist').value;
+    if(!this.selectedCategoryId)
+    return false;
     if(this.selectedCategoryId == 0) {
-      
+      //this.parentCategoryError = true;
+      return false;
     }
+    return true;
   }
   loadCategories(): any {
     this.categoryService.getAll().subscribe({
@@ -68,13 +73,20 @@ export class ManageSubcategoriesComponent implements OnInit {
   saveCategories(): boolean {
     this.formSubmitted = true;
     let someData = this.form.get('formlist').value;
-    someData = {
-      ...someData,
-      childCategoryId: this.selectedCategoryId,
-      name: this.selectedCategoryName
-    }
+    let inputData = [];
+    someData.forEach((item: any) => {
+      inputData.push({ 
+        childCategoryId: item.subCategoryId,
+        name: item.subCategoryName,
+        parentCategory: {
+          categoryId: this.selectedCategoryId,
+          categoryName: this.selectedCategoryName
+        }
+      });
+    });
+    
     if(this.validateForm()) {
-      this.childCategoryService.addChildVideoCategory(someData).subscribe({
+      this.childCategoryService.addAllChildVideoCategory(inputData).subscribe({
         next: data => {
           //this.initCategories();
           this.loadSubCategories();
@@ -83,13 +95,17 @@ export class ManageSubcategoriesComponent implements OnInit {
 
         }
       });
+      this.formSubmitted = false;
+    } else {
+
+      return false;
     }
     return true;
   }
   field(): FormGroup {
     return this.fb.group({
-      categoryName: ['', Validators.required],
-      categoryId: '0'
+      subCategoryName: ['', Validators.required],
+      subCategoryId: '0'
     });
   }
 
@@ -116,6 +132,7 @@ export class ManageSubcategoriesComponent implements OnInit {
     if(event) {
       this.selectedCategoryId = event.categoryId;
       this.selectedCategoryName = event.categoryName;
+      this.loadSubCategories();
     } else {
       this.selectedCategoryId = -1;
       this.selectedCategoryName = '';

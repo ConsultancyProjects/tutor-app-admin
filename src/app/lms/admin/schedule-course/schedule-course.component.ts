@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { StringTextModule } from '@carbon/icons-angular';
 import { CategoryService, ChildVideoCategory, ChildVideoCategoryService, VideoCategoryService } from 'src/app/shared';
 
@@ -31,6 +31,8 @@ export class ScheduleCourseComponent implements OnInit {
   }
   initCategories(): any {
     this.form = this.fb.group({
+      categoryName: ['',Validators.required],
+      categoryId: {},
       formlist: this.fb.array([])
     });
   }

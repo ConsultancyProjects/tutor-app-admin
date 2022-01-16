@@ -33,7 +33,12 @@ export class ChildVideoCategoryService {
                  return data;
         }));
     }
-
+    addAllChildVideoCategory(childVideoCategories: any) {
+        return this.http.postRequest<any>(API_ENDPOINTS.CHILD_VIDEO_CATEGORY.API + API_ENDPOINTS.CHILD_VIDEO_CATEGORY.ADD_ALL_CHILD_VIDEO_CATEGORY, childVideoCategories)
+        .pipe(map(data => {
+                 return data;
+        }));
+    }
     updateChildVideoCategory(childVideoCategory: ChildVideoCategory) {
         return this.http.putRequest<any>(API_ENDPOINTS.CHILD_VIDEO_CATEGORY.API + API_ENDPOINTS.CHILD_VIDEO_CATEGORY.UPDATE_CHILD_VIDEO_CATEGORY, childVideoCategory)
         .pipe(map(data => {

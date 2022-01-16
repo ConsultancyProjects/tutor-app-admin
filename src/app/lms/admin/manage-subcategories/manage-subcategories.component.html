@@ -17,20 +17,21 @@
               bindValue="categoryId" 
               (change)="categoryDropdownHandler($event)">
             </ng-select>
+            <div *ngIf="formSubmitted && form.controls.categoryName.errors" class="invalid-feedback">
+              <span *ngIf="formSubmitted && form.controls.categoryName.errors.required">Please select Category</span>
+            </div>
         </div>
         <div class="mb-3 col-lg-6">
           <label for="categoryName">Sub Category Name</label>
-          <div *ngIf="formSubmitted && form.errors" class="invalid-feedback">
-            <span *ngIf="form.errors.required">Please provide valid Sub Category</span>
-          </div>
+          
         </div>
         
           <div formArrayName="formlist">
             <div *ngFor="let data1 of formData().controls; let i=index;">
               <div [formGroupName]="i" class="row">
                 <div class="mb-3 col-lg-6">
-                  <input type="text" formControlName="categoryName" class="form-control">
-                  <input type="hidden" formControlName="categoryId" class="form-control" style="display:none;">
+                  <input type="text" formControlName="subCategoryName" class="form-control">
+                  <input type="hidden" formControlName="subCategoryId" class="form-control" style="display:none;">
                 </div>
                 <div class="mb-3 col-lg-6 align-self-center">
                   <div class="d-grid">
@@ -53,7 +54,7 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title mb-4">Manage Categories</h4>
+        <h4 class="card-title mb-4">Manage Sub Categories</h4>
         <div *ngFor="let catty of subcategories; let i=index;">
           <div class="row">
             <div class="mb-3 col-lg-6">
