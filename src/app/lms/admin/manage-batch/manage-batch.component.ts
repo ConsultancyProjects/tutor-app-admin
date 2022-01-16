@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StringTextModule } from '@carbon/icons-angular';
-import { CategoryService, ChildVideoCategory, ChildVideoCategoryService, VideoCategoryService } from 'src/app/shared';
+import { CategoryService, ChildVideoCategory, ChildVideoCategoryService, VideoCategory, VideoCategoryService } from 'src/app/shared';
 import { BatchService } from 'src/app/shared/services/batch.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class ManageBatchComponent  implements OnInit {
   breadCrumbItems: Array<{}>;
 
   form: FormGroup;
-  categories: ChildVideoCategory[];
+  categories: VideoCategory[];
   subcategories: ChildVideoCategory[];
   selectedCategoryName: string;
   selectedCategoryId: number;

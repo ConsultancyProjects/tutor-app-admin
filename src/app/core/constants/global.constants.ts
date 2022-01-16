@@ -66,12 +66,13 @@ export const API_ENDPOINTS = {
         UPDATE_CHILD_VIDEO_CATEGORY: '/',
     },
     BATCH: {
-        API: 'batches',
-        GET_ALL_BATCHES: `/`,
-        GET_ALL_VIDEO_CATEGORIES_BY_PARENT_CATEGORY_ID: (parentCategoryId: any) => `/${parentCategoryId}`,
-        ADD_CHILD_VIDEO_CATEGORY: '/',
-        ADD_ALL_CHILD_VIDEO_CATEGORY: '/all',
-        UPDATE_CHILD_VIDEO_CATEGORY: '/',
+        API: 'batches/',
+        GET_ALL_BATCHES: ``,
+        GET_ALL_BATCHES_BY_USER: (userId: any) => `${userId}`,
+        ALL_BATCHES_BY_CHILD_CATEGORY_ID: (childVidCatId: any) => `child-vid-cat/${childVidCatId}`,
+        ADD_BATCH: ``, 
+        DELETE_BATCH: (batchId:any) => `${batchId}`,
+        UPDATE_BATCH: (batchId:any) => `${batchId}`
     },
     USER_VIDEO_CATEGORY: {
         API: 'user-catgeory-mapping',

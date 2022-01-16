@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StringTextModule } from '@carbon/icons-angular';
-import { CategoryService, ChildVideoCategory, ChildVideoCategoryService, VideoCategoryService } from 'src/app/shared';
+import { CategoryService, VideoCategory, ChildVideoCategory, ChildVideoCategoryService, VideoCategoryService } from 'src/app/shared';
 
 @Component({
   selector: 'app-manage-subcategories',
@@ -12,7 +12,7 @@ export class ManageSubcategoriesComponent implements OnInit {
   breadCrumbItems: Array<{}>;
 
   form: FormGroup;
-  categories: ChildVideoCategory[];
+  categories: VideoCategory[];
   subcategories: ChildVideoCategory[];
   selectedCategoryName: string;
   selectedCategoryId: number;

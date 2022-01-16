@@ -24,7 +24,16 @@
         <div class="mb-3 col-lg-6">
           <label for="categoryName">Sub Category Name</label>
           
-        </div>
+          <ng-select [items]="subcategories" 
+            bindLabel="categoryName"
+            formControlName="categoryName"
+            bindValue="categoryId" 
+            (change)="categoryDropdownHandler($event)">
+          </ng-select>
+          <div *ngIf="formSubmitted && form.controls.categoryName.errors" class="invalid-feedback">
+            <span *ngIf="formSubmitted && form.controls.categoryName.errors.required">Please select Category</span>
+          </div>
+      </div>
         
           <div formArrayName="formlist">
             <div *ngFor="let data1 of formData().controls; let i=index;">

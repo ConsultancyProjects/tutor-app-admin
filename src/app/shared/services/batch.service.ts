@@ -21,26 +21,32 @@ export class BatchService {
     }
 
     getAllBatchesForUser(userId: string ) {
-        return this.http.getRequest<any>(API_ENDPOINTS.CHILD_VIDEO_CATEGORY.API + API_ENDPOINTS.CHILD_VIDEO_CATEGORY.GET_ALL_VIDEO_CATEGORIES_BY_PARENT_CATEGORY_ID(parentCategoryId))
+        return this.http.getRequest<any>(API_ENDPOINTS.BATCH.API + API_ENDPOINTS.BATCH.GET_ALL_BATCHES_BY_USER(userId))
             .pipe(map(data => {
                 return data;
             }));
     }
 
-    addChildVideoCategory(childVideoCategory: ChildVideoCategory) {
-        return this.http.postRequest<any>(API_ENDPOINTS.CHILD_VIDEO_CATEGORY.API + API_ENDPOINTS.CHILD_VIDEO_CATEGORY.ADD_CHILD_VIDEO_CATEGORY, childVideoCategory)
+    getAllBatchesForChildCatgeory(childVidCatId: string) {
+        return this.http.postRequest<any>(API_ENDPOINTS.BATCH.API + API_ENDPOINTS.BATCH.ALL_BATCHES_BY_CHILD_CATEGORY_ID, childVidCatId)
         .pipe(map(data => {
                  return data;
         }));
     }
-    addAllChildVideoCategory(childVideoCategories: any) {
-        return this.http.postRequest<any>(API_ENDPOINTS.CHILD_VIDEO_CATEGORY.API + API_ENDPOINTS.CHILD_VIDEO_CATEGORY.ADD_ALL_CHILD_VIDEO_CATEGORY, childVideoCategories)
+    addBatch(batch: any) {
+        return this.http.postRequest<any>(API_ENDPOINTS.BATCH.API + API_ENDPOINTS.BATCH.ADD_BATCH, batch)
         .pipe(map(data => {
                  return data;
         }));
     }
-    updateChildVideoCategory(childVideoCategory: ChildVideoCategory) {
-        return this.http.putRequest<any>(API_ENDPOINTS.CHILD_VIDEO_CATEGORY.API + API_ENDPOINTS.CHILD_VIDEO_CATEGORY.UPDATE_CHILD_VIDEO_CATEGORY, childVideoCategory)
+    deleteBatch(batchId: number) {
+        return this.http.deleteRequest<any>(API_ENDPOINTS.BATCH.API + API_ENDPOINTS.BATCH.DELETE_BATCH(batchId))
+        .pipe(map(data => {
+                 return data;
+        }));
+    }
+    updateBatch(batch: any) {
+        return this.http.putRequest<any>(API_ENDPOINTS.BATCH.API + API_ENDPOINTS.BATCH.UPDATE_BATCH, batch)
         .pipe(map(data => {
                  return data;
         }));
