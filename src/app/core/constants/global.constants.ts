@@ -33,7 +33,7 @@ export const API_ENDPOINTS = {
         GET_ALL: '/',
         ADD: '/',
         ADD_ALL: '/all',
-        DELETE: (categoryId: string) => `/?categoryId=${categoryId}`
+        DELETE: (categoryId: string) => `/parent/?categoryId=${categoryId}`
     },
     ROLE: {
         API: 'roles',
@@ -54,10 +54,20 @@ export const API_ENDPOINTS = {
         GET_ALL_VIDEO_CATEGORIES: '/',
         ADD_PARENT_VIDEO_CATEGORY: '/',
         UPDATE_PARENT_VIDEO_CATEGORY: '/',
+        DELETE_PARENT_VIDEO_CATEGORY: (categoryId: string) => `/parent/${categoryId}`,
+        DELETE_CHILD_VIDEO_CATEGORY: (categoryId: string) => `/child/${categoryId}`
     },
     CHILD_VIDEO_CATEGORY: {
         API: 'child-video-categories',
         GET_ALL_CHILD_VIDEO_CATEGORIES: `/`,
+        GET_ALL_VIDEO_CATEGORIES_BY_PARENT_CATEGORY_ID: (parentCategoryId: any) => `/${parentCategoryId}`,
+        ADD_CHILD_VIDEO_CATEGORY: '/',
+        ADD_ALL_CHILD_VIDEO_CATEGORY: '/all',
+        UPDATE_CHILD_VIDEO_CATEGORY: '/',
+    },
+    BATCH: {
+        API: 'batches',
+        GET_ALL_BATCHES: `/`,
         GET_ALL_VIDEO_CATEGORIES_BY_PARENT_CATEGORY_ID: (parentCategoryId: any) => `/${parentCategoryId}`,
         ADD_CHILD_VIDEO_CATEGORY: '/',
         ADD_ALL_CHILD_VIDEO_CATEGORY: '/all',

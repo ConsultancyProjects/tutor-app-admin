@@ -31,4 +31,10 @@ export class VideoCategoryService {
                  return data;
         }));
     }
+    deleteChildVideoCategory(categoryId: string) {
+        return this.http.deleteRequest<any>(API_ENDPOINTS.VIDEO_CATEGORY.API + API_ENDPOINTS.VIDEO_CATEGORY.DELETE_CHILD_VIDEO_CATEGORY(categoryId))
+        .pipe(map(data => {
+                 return data;
+        }));
+    }
 }

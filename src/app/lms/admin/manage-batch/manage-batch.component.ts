@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { CategoryService, VideoCategory } from 'src/app/shared';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { StringTextModule } from '@carbon/icons-angular';
+import { CategoryService, ChildVideoCategory, ChildVideoCategoryService, VideoCategoryService } from 'src/app/shared';
+import { BatchService } from 'src/app/shared/services/batch.service';
 
 @Component({
   selector: 'app-manage-batch',
@@ -11,25 +13,42 @@ export class ManageBatchComponent  implements OnInit {
   breadCrumbItems: Array<{}>;
 
   form: FormGroup;
-  categories: VideoCategory[];
-  categoryName: FormControl;
-  categoryId: FormControl;
-  constructor(private fb: FormBuilder, private categoryService: CategoryService) {
+  categories: ChildVideoCategory[];
+  subcategories: ChildVideoCategory[];
+  selectedCategoryName: string;
+  selectedCategoryId: number;
+  parentCategoryError: string;
+  formSubmitted: boolean;
+  constructor(private fb: FormBuilder, 
+    private categoryService: CategoryService,
+    private videoCategoryService: VideoCategoryService,
+    private childCategoryService: ChildVideoCategoryService,
+    private batchService: BatchService) {
     
-
   }
 
   ngOnInit(): void {
     this.initCategories();
-    this.breadCrumbItems = [{ label: 'Batch' }, { label: 'Manage Batch', active: true }];
+    this.breadCrumbItems = [{ label: 'Sub Categories' }, { label: 'Manage Sub Category', active: true }];
     this.loadCategories();
+    this.formSubmitted = false;
   }
   initCategories(): any {
     this.form = this.fb.group({
+      categoryId:0,
+      categoryName: ['', Validators.required],
       formlist: this.fb.array([])
     });
-    this.categoryName = new FormControl('', Validators.required);
-    this.categoryId = new FormControl('', Validators.required);
+  }
+  validateForm(): any {
+    let subCForm = this.form.get('formlist').value;
+    if(!this.selectedCategoryId)
+    return false;
+    if(this.selectedCategoryId == 0) {
+      //this.parentCategoryError = true;
+      return false;
+    }
+    return true;
   }
   loadCategories(): any {
     this.categoryService.getAll().subscribe({
@@ -41,29 +60,56 @@ export class ManageBatchComponent  implements OnInit {
       }
     });
   }
-  formData(): FormArray {
-    return this.form.get('formlist') as FormArray;
-  }
-  saveCategories(): boolean {
-    if(this.form.get('formlist').status == 'INVALID') {
-      return false;
-    }
-    let someData = this.form.get('formlist').value;
-    this.categoryService.addAllCategory(someData).subscribe({
+  loadSubCategories(): any {
+    this.childCategoryService.getAllChildVideoCategoriesByParentCategoryId(this.selectedCategoryId+'').subscribe({
       next: data => {
-        this.initCategories();
-        this.loadCategories();
+        this.subcategories = data;
+        this.formData().controls=[];
       },
       error: error => {
 
       }
     });
+  }
+  formData(): FormArray {
+    return this.form.get('formlist') as FormArray;
+  }
+  saveCategories(): boolean {
+    this.formSubmitted = true;
+    let someData = this.form.get('formlist').value;
+    let inputData = [];
+    someData.forEach((item: any) => {
+      inputData.push({ 
+        childCategoryId: item.subCategoryId,
+        name: item.subCategoryName,
+        parentCategory: {
+          categoryId: this.selectedCategoryId,
+          categoryName: this.selectedCategoryName
+        }
+      });
+    });
+    
+    if(this.validateForm()) {
+      this.childCategoryService.addAllChildVideoCategory(inputData).subscribe({
+        next: data => {
+          //this.initCategories();
+          this.loadSubCategories();
+        },
+        error: error => {
+
+        }
+      });
+      this.formSubmitted = false;
+    } else {
+
+      return false;
+    }
     return true;
   }
   field(): FormGroup {
     return this.fb.group({
-      categoryName: ['', Validators.required],
-      categoryId: '0'
+      subCategoryName: ['', Validators.required],
+      subCategoryId: '0'
     });
   }
 
@@ -73,10 +119,11 @@ export class ManageBatchComponent  implements OnInit {
     }
   }
   removeCategory(categoryId: string) {
-    this.categoryService.deleteCategory(categoryId).subscribe({
+    this.videoCategoryService.deleteChildVideoCategory(categoryId).subscribe({
       next: data => {
         console.log(data);
         this.loadCategories();
+        this.loadSubCategories();
       },
       error: error => {
 
@@ -85,5 +132,15 @@ export class ManageBatchComponent  implements OnInit {
   }
   addField() {
     this.formData().push(this.field());
+  }
+  categoryDropdownHandler(event: any) {
+    if(event) {
+      this.selectedCategoryId = event.categoryId;
+      this.selectedCategoryName = event.categoryName;
+      this.loadSubCategories();
+    } else {
+      this.selectedCategoryId = -1;
+      this.selectedCategoryName = '';
+    }
   }
 }

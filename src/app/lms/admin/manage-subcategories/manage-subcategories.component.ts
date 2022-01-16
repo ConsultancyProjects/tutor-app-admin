@@ -20,6 +20,7 @@ export class ManageSubcategoriesComponent implements OnInit {
   formSubmitted: boolean;
   constructor(private fb: FormBuilder, 
     private categoryService: CategoryService,
+    private videoCategoryService: VideoCategoryService,
     private childCategoryService: ChildVideoCategoryService) {
     
   }
@@ -61,6 +62,7 @@ export class ManageSubcategoriesComponent implements OnInit {
     this.childCategoryService.getAllChildVideoCategoriesByParentCategoryId(this.selectedCategoryId+'').subscribe({
       next: data => {
         this.subcategories = data;
+        this.formData().controls=[];
       },
       error: error => {
 
@@ -115,10 +117,11 @@ export class ManageSubcategoriesComponent implements OnInit {
     }
   }
   removeCategory(categoryId: string) {
-    this.categoryService.deleteCategory(categoryId).subscribe({
+    this.videoCategoryService.deleteChildVideoCategory(categoryId).subscribe({
       next: data => {
         console.log(data);
         this.loadCategories();
+        this.loadSubCategories();
       },
       error: error => {
 

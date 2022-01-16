@@ -58,12 +58,12 @@
         <div *ngFor="let catty of subcategories; let i=index;">
           <div class="row">
             <div class="mb-3 col-lg-6">
-              <h5>{{catty.categoryName}}</h5>
-              <input type="hidden" value="{{catty.categoryId}}" class="form-control" style="display:none;">
+              <h5>{{catty.name}}</h5>
+              <input type="hidden" value="{{catty.childCategoryId}}" class="form-control" style="display:none;">
             </div>
             <div class="mb-3 col-lg-6 align-self-center">
               <div class="d-grid">
-                <input type="button" class="btn btn-primary" value="Delete" (click)="removeCategory(catty.categoryId)">
+                <input type="button" class="btn btn-primary" value="Delete" (click)="removeCategory(catty.childCategoryId)">
               </div>
             </div>
           </div>

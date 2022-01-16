@@ -38,4 +38,10 @@ export class CategoryService {
                     return data;
             }));
     }
+    deleteChildCategory(categoryId: string ) {
+        return this.http.deleteRequest<any>( API_ENDPOINTS.CATEGORY.API+ API_ENDPOINTS.CATEGORY.DELETE(categoryId))
+            .pipe(map(data => {
+                    return data;
+            }));
+    }
 }
