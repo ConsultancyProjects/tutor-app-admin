@@ -8,11 +8,12 @@ import { CategoryService, ChildVideoCategory, ChildVideoCategoryService, VideoCa
   templateUrl: './manage-subcategories.component.html',
   styleUrls: ['./manage-subcategories.component.scss']
 })
-export class ManageSubcategoriesComponent  implements OnInit {
+export class ManageSubcategoriesComponent implements OnInit {
   breadCrumbItems: Array<{}>;
 
   form: FormGroup;
   categories: ChildVideoCategory[];
+  subcategories: ChildVideoCategory[];
   selectedCategoryName: string;
   selectedCategoryId: number;
   parentCategoryError: string;
@@ -26,6 +27,7 @@ export class ManageSubcategoriesComponent  implements OnInit {
   ngOnInit(): void {
     this.initCategories();
     this.breadCrumbItems = [{ label: 'Sub Categories' }, { label: 'Manage Sub Category', active: true }];
+    this.loadCategories();
     this.loadCategories();
     this.formSubmitted = false;
   }
@@ -50,6 +52,16 @@ export class ManageSubcategoriesComponent  implements OnInit {
       }
     });
   }
+  loadSubCategories(): any {
+    this.childCategoryService.getAllChildVideoCategoriesByParentCategoryId(this.selectedCategoryId+'').subscribe({
+      next: data => {
+        this.subcategories = data;
+      },
+      error: error => {
+
+      }
+    });
+  }
   formData(): FormArray {
     return this.form.get('formlist') as FormArray;
   }
@@ -64,8 +76,8 @@ export class ManageSubcategoriesComponent  implements OnInit {
     if(this.validateForm()) {
       this.childCategoryService.addChildVideoCategory(someData).subscribe({
         next: data => {
-          this.initCategories();
-          this.loadCategories();
+          //this.initCategories();
+          this.loadSubCategories();
         },
         error: error => {
 
@@ -109,4 +121,4 @@ export class ManageSubcategoriesComponent  implements OnInit {
       this.selectedCategoryName = '';
     }
   }
-};
+}

@@ -22,7 +22,7 @@
           <label for="categoryName">Sub Category Name</label>
           <div *ngIf="formSubmitted && form.errors" class="invalid-feedback">
             <span *ngIf="form.errors.required">Please provide valid Sub Category</span>
-          </div> 
+          </div>
         </div>
         
           <div formArrayName="formlist">
@@ -54,7 +54,7 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title mb-4">Manage Categories</h4>
-        <div *ngFor="let catty of categories; let i=index;">
+        <div *ngFor="let catty of subcategories; let i=index;">
           <div class="row">
             <div class="mb-3 col-lg-6">
               <h5>{{catty.categoryName}}</h5>

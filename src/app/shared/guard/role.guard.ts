@@ -17,7 +17,7 @@ export class RoleGuard implements CanActivate {
         
             const currentUser = JSON.parse(localStorage.getItem(GENERIC_CONSTANTS.LOGGEDIN_USER));
             if(currentUser == null) {
-                this.router.navigate([ROUTES.ACCOUNT_LOGIN], { queryParams: { returnUrl: state.url } });
+                //this.router.navigate([ROUTES.ACCOUNT_LOGIN], { queryParams: { returnUrl: state.url } });
                 return false;
             }
             if (currentUser && route.data.roles && route.data.roles.indexOf(currentUser.role[0].authority) === -1) {

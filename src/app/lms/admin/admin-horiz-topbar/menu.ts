@@ -128,12 +128,6 @@ export const MENU: MenuItem[] = [
                 label: 'MENUITEMS.TIMETABLE.LIST.SCHEDULECOURSE',
                 link: 'scheduleCourse',
                 parentId: 26
-            },
-            {
-                id: 28,
-                label: 'MENUITEMS.TIMETABLE.LIST.MANAGEUSERS',
-                link: 'manageUsers',
-                parentId: 26
             }
         ]
     }/*,

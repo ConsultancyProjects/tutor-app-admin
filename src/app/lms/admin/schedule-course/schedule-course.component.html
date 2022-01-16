@@ -1,1 +1,85 @@
-<p>schedule-course works!</p>
+<!-- start page title -->
+<app-page-title title="Schedule Course" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+<!-- end page title -->
+
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <form class="repeater" [formGroup]="form">
+        <div class="row">
+            <div class="mb-3 col-lg-6">
+                <label for="categoryName">Category</label>
+                
+                <ng-select [items]="categories" 
+                bindLabel="categoryName"
+                formControlName="categoryName"
+                bindValue="categoryId" 
+                (change)="categoryDropdownHandler($event)">
+                </ng-select>
+                
+            </div>
+            <div class="mb-3 col-lg-6">
+                <label for="subCategoryName">Sub Category</label>
+                
+                <ng-select [items]="subcategories" 
+                bindLabel="categoryName"
+                formControlName="categoryName"
+                bindValue="categoryId" 
+                (change)="categoryDropdownHandler($event)">
+                </ng-select>
+            </div>
+        </div>
+        <div class="mb-3 col-lg-5">
+          <label for="categoryName">Sub Category Name</label>
+          <div *ngIf="formSubmitted && form.errors" class="invalid-feedback">
+            <span *ngIf="form.errors.required">Please provide valid Sub Category</span>
+          </div> 
+        </div>
+        
+          <div formArrayName="formlist">
+            <div *ngFor="let data1 of formData().controls; let i=index;">
+              <div [formGroupName]="i" class="row">
+                <div class="mb-3 col-lg-5">
+                  <input type="text" formControlName="categoryName" class="form-control">
+                  <input type="hidden" formControlName="categoryId" class="form-control" style="display:none;">
+                </div>
+                <div class="mb-3 col-lg-5 align-self-center">
+                  <div class="d-grid">
+                    <input type="button" class="btn btn-primary" value="Delete" (click)="removeField(i)">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="button" class="btn btn-success mt-3 mt-lg-0" value="Add" (click)="addField()">
+            
+          </div>
+        
+        <div class="float-end">
+          <button class="btn btn-primary w-md ms-1" (click)="saveCategories()">Save</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title mb-4">Manage Categories</h4>
+        <div *ngFor="let catty of categories; let i=index;">
+          <div class="row">
+            <div class="mb-3 col-lg-6">
+              <h5>{{catty.categoryName}}</h5>
+              <input type="hidden" value="{{catty.categoryId}}" class="form-control" style="display:none;">
+            </div>
+            <div class="mb-3 col-lg-6 align-self-center">
+              <div class="d-grid">
+                <input type="button" class="btn btn-primary" value="Delete" (click)="removeCategory(catty.categoryId)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
