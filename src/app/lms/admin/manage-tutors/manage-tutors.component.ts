@@ -21,10 +21,7 @@ export class ManageTutorsComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.breadCrumbItems = [{ label: 'Users' }, { label: 'Manage users', active: true }];
-
     this.makeAjaxToLoadUsers();
-    
-      
   }
 
   makeAjaxToLoadUsers() {

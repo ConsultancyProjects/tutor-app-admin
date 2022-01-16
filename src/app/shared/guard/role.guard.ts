@@ -16,7 +16,11 @@ export class RoleGuard implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         
             const currentUser = JSON.parse(localStorage.getItem(GENERIC_CONSTANTS.LOGGEDIN_USER));
-            if (route.data.roles && route.data.roles.indexOf(currentUser.role[0].authority) === -1) {
+            if(currentUser == null) {
+                this.router.navigate([ROUTES.ACCOUNT_LOGIN], { queryParams: { returnUrl: state.url } });
+                return false;
+            }
+            if (currentUser && route.data.roles && route.data.roles.indexOf(currentUser.role[0].authority) === -1) {
                 // role not authorised so redirect to home page
                 this.router.navigate([ROUTES.ACCOUNT_LOGIN], { queryParams: { returnUrl: state.url } });
                 return false;

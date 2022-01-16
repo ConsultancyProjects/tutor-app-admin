@@ -13,21 +13,20 @@ export class TimeTableService {
         
     }
 
-    getTimeTableByDate(fromDate: string) {
-        return this.http.getRequest<any>(API_ENDPOINTS.TIMETABLE.API + API_ENDPOINTS.TIMETABLE.GET_TIMETABLE_BY_DATE(fromDate))
-        .pipe(map(data => {
-                 return data;
-        }));
+    getTimeTableByDate(fromDate: string):any {
+        return this.http.getRequest<any>(API_ENDPOINTS.TIMETABLE.API + API_ENDPOINTS.TIMETABLE.GET_TIMETABLE_BY_DATE(fromDate));
     }
-
-    addTimeTable(timeTable: TimeTable) {
+    getTimeTableByStudent(userId: string):any {
+        return this.http.getRequest<any>(API_ENDPOINTS.TIMETABLE.API + API_ENDPOINTS.TIMETABLE.GET_TIMETABLE_BY_USER(userId));
+    }
+    addTimeTable(timeTable: TimeTable):any {
         return this.http.postRequest<any>(API_ENDPOINTS.TIMETABLE.API + API_ENDPOINTS.TIMETABLE.ADD_TIMETABLE, timeTable)
         .pipe(map(data => {
                  return data;
         }));
     }
 
-    updateTimeTable(timeTable: TimeTable) {
+    updateTimeTable(timeTable: TimeTable):any {
         return this.http.putRequest<any>(API_ENDPOINTS.TIMETABLE.API + API_ENDPOINTS.TIMETABLE.UPDATE_TIMETABLE, timeTable)
         .pipe(map(data => {
                  return data;

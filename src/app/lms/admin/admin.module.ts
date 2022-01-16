@@ -40,6 +40,7 @@ import { ViewCoursesComponent } from './view-courses/view-courses.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ManageSubcategoriesComponent } from './manage-subcategories/manage-subcategories.component';
 import { ManageBatchComponent } from './manage-batch/manage-batch.component';
+import { ScheduleCourseComponent } from './schedule-course/schedule-course.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ManageBatchComponent } from './manage-batch/manage-batch.component';
     EditCourseComponent,
     ViewCoursesComponent,
     ManageSubcategoriesComponent,
-    ManageBatchComponent
+    ManageBatchComponent,
+    ScheduleCourseComponent
   ],
   imports: [
     CommonModule,
@@ -92,7 +94,22 @@ import { ManageBatchComponent } from './manage-batch/manage-batch.component';
   ],exports: [
     AdminNavComponent,
     AdminHorizTopbarComponent,
-    AdminVerticalSidebarComponent
+    AdminVerticalSidebarComponent,
+    ManageUserComponent,
+    ManageCategoriesComponent,
+    AssignRoleComponent,
+    HomeComponent,
+    ManageTutorsComponent,
+    ReassignTutorsComponent,
+    ManageStudentsComponent,
+    AssignCourseComponent,
+    RemoveStudentCourseComponent,
+    CreateCourseComponent,
+    EditCourseComponent,
+    ViewCoursesComponent,
+    ManageSubcategoriesComponent,
+    ManageBatchComponent,
+    ScheduleCourseComponent
   ],
 })
 export class AdminModule { }

@@ -118,6 +118,24 @@ export const MENU: MenuItem[] = [
                 parentId: 26
             }
         ]
+    },{
+        id: 26,
+        label: 'MENUITEMS.TIMETABLE.TEXT',
+        icon: 'bx-user-circle',
+        subItems: [
+            {
+                id: 27,
+                label: 'MENUITEMS.TIMETABLE.LIST.SCHEDULECOURSE',
+                link: 'scheduleCourse',
+                parentId: 26
+            },
+            {
+                id: 28,
+                label: 'MENUITEMS.TIMETABLE.LIST.MANAGEUSERS',
+                link: 'manageUsers',
+                parentId: 26
+            }
+        ]
     }/*,
     {
         id: 71,

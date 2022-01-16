@@ -6,6 +6,7 @@ import { ExploreTutorsComponent } from './explore-tutors/explore-tutors.componen
 import { MyCoursesComponent } from './my-courses/my-courses.component';
 import { StudentHorizTopbarComponent } from './student-horiz-topbar/student-horiz-topbar.component';
 import { StudentNavComponent } from './student-nav/student-nav.component';
+import { TodayClassComponent } from './today-class/today-class.component';
 
 
 
@@ -18,7 +19,7 @@ const routes: Routes = [
     {  path: 'exploreCourses', component: ExploreCoursesComponent},
     {  path: 'myCourses', component: MyCoursesComponent},
     {  path: 'exploreTutors', component: ExploreTutorsComponent},
-    {  path: 'todayClass', component: ExploreTutorsComponent},
+    {  path: 'todayClass', component: TodayClassComponent},
     {  path: 'askQuestion', component: AskAQuestionComponent}
     ]}
    

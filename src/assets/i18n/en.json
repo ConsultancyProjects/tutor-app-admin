@@ -86,7 +86,7 @@
 			}
 		}
 	},
-  "TUTORMENU": {
+  	"TUTORMENU": {
 		"HOME": {
 			"TEXT": "Courses",
 			"LIST": {
@@ -159,6 +159,11 @@
 				"MANAGESTUDENTS": "Manage Students",
 				"ASSIGNCOURSE": "Assign Course",
 				"REMOVESTUDENTFROMCOURSE": "Remove Student from Course"
+			}
+		},"TIMETABLE": {
+			"TEXT": "Timetable",
+			"LIST": {
+				"SCHEDULECOURSE": "Schedule Course"
 			}
 		},
 		"PROJECTS": {

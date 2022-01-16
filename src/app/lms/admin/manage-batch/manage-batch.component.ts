@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoryService, VideoCategory } from 'src/app/shared';
 
 @Component({
@@ -12,6 +12,8 @@ export class ManageBatchComponent  implements OnInit {
 
   form: FormGroup;
   categories: VideoCategory[];
+  categoryName: FormControl;
+  categoryId: FormControl;
   constructor(private fb: FormBuilder, private categoryService: CategoryService) {
     
 
@@ -26,6 +28,8 @@ export class ManageBatchComponent  implements OnInit {
     this.form = this.fb.group({
       formlist: this.fb.array([])
     });
+    this.categoryName = new FormControl('', Validators.required);
+    this.categoryId = new FormControl('', Validators.required);
   }
   loadCategories(): any {
     this.categoryService.getAll().subscribe({

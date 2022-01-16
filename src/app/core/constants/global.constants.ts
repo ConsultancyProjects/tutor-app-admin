@@ -78,9 +78,10 @@ export const API_ENDPOINTS = {
         DELETE_USER_PROFILE: (userId: string) => `/${userId}`,
     },
     TIMETABLE: {
-        API: 'timetable',
-        GET_TIMETABLE_BY_DATE: (fromDate: string) => `/?fromDate=${fromDate}`,
-        ADD_TIMETABLE: '/',
-        UPDATE_TIMETABLE: '/'
+        API: 'timetable/',
+        GET_TIMETABLE_BY_DATE: (fromDate: string) => `?fromDate=${fromDate}`,
+        GET_TIMETABLE_BY_USER: (userId: string) => `student/${userId}`,
+        ADD_TIMETABLE: '',
+        UPDATE_TIMETABLE: ''
     }
 }

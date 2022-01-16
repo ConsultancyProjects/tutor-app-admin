@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TimeTableService } from 'src/app/shared';
 
 @Component({
   selector: 'app-today-class',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodayClassComponent implements OnInit {
 
-  constructor() { }
+  constructor(private timeTableService: TimeTableService) { }
 
   ngOnInit(): void {
+    let varr = this.timeTableService.getTimeTableByDate((new Date()).getTime()+"").subscribe({
+      next: (data) => {
+        console.log(data);
+      }, 
+      error: (error) => {
+
+      }
+    })
+    console.log('');
   }
 
 }

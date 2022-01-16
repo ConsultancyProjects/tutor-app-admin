@@ -1,8 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Project } from '../project.model';
+import { TimeTable, TimeTableService } from 'src/app/shared';
+import { APIAuthenticationService, GENERIC_CONSTANTS } from 'src/app/core';
 
-import { projectData } from '../myprojectdata';
 @Component({
   selector: 'app-my-courses',
   templateUrl: './my-courses.component.html',
@@ -11,14 +11,23 @@ import { projectData } from '../myprojectdata';
 export class MyCoursesComponent implements OnInit {
   // bread crumb items
   breadCrumbItems: Array<{}>;
-  projectData: Project[];
+  timeTableData: TimeTable[];
 
-  constructor() { }
+  constructor(private timeTableService: TimeTableService, private apiAuthenticationService: APIAuthenticationService) {
+    
+  }
 
   ngOnInit() {
-    this.breadCrumbItems = [{ label: 'Projects' }, { label: 'Projects Grid', active: true }];
-
-    this.projectData = projectData;
+    this.breadCrumbItems = [{ label: 'My Courses' }, { label: 'Courses Grid', active: true }];
+    let user: string = this.apiAuthenticationService.currentUserValue.sub;
+    this.timeTableData = this.timeTableService.getTimeTableByStudent(user).subscribe({
+      next: (data) => {
+        console.log(data);
+      }, 
+      error: (error) => {
+        console.log(error);
+      }
+    })
   }
 
 }

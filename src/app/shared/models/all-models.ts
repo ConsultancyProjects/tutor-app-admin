@@ -80,3 +80,19 @@ export interface UserVideoCategory {
 	user: User;
     childVideoCategory:ChildVideoCategory;
 }
+
+export interface Batch {
+    batchId: number;
+    batchName: string;
+    description: string;
+    childVideoCategoryId: number;
+}
+
+export interface TimeTable {
+    scheduleId: number;
+    video: Video;
+    tutorId: User;
+    batch: Batch;
+    fromDate: Date;
+    toDate: Date;
+}

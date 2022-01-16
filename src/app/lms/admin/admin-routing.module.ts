@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminHorizTopbarComponent } from './admin-horiz-topbar/admin-horiz-topbar.component';
-
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { AssignCourseComponent } from './assign-course/assign-course.component';
 import { AssignRoleComponent } from './assign-role/assign-role.component';
@@ -15,6 +14,7 @@ import { ManageTutorsComponent } from './manage-tutors/manage-tutors.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { ReassignTutorsComponent } from './reassign-tutors/reassign-tutors.component';
 import { RemoveStudentCourseComponent } from './remove-student-course/remove-student-course.component';
+import { ScheduleCourseComponent } from './schedule-course/schedule-course.component';
 import { ViewCoursesComponent } from './view-courses/view-courses.component';
 
 
@@ -35,7 +35,8 @@ const routes: Routes = [
    { path: 'removeStudentFromCourse', component: RemoveStudentCourseComponent },
    { path: 'createCourse', component: CreateCourseComponent},
    { path: 'viewCourses', component: ViewCoursesComponent},
-   { path: 'editCourse', component: EditCourseComponent}
+   { path: 'editCourse', component: EditCourseComponent},
+   { path: 'scheduleCourse', component: ScheduleCourseComponent}
    ]}
 ];
 
