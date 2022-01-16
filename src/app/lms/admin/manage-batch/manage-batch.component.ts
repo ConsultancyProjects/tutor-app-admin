@@ -17,6 +17,8 @@ export class ManageBatchComponent  implements OnInit {
   subcategories: ChildVideoCategory[];
   selectedCategoryName: string;
   selectedCategoryId: number;
+  selectedSubCategoryName: string;
+  selectedSubCategoryId: number;
   parentCategoryError: string;
   formSubmitted: boolean;
   constructor(private fb: FormBuilder, 
@@ -29,7 +31,7 @@ export class ManageBatchComponent  implements OnInit {
 
   ngOnInit(): void {
     this.initCategories();
-    this.breadCrumbItems = [{ label: 'Sub Categories' }, { label: 'Manage Sub Category', active: true }];
+    this.breadCrumbItems = [{ label: 'Batches' }, { label: 'Manage Batch', active: true }];
     this.loadCategories();
     this.formSubmitted = false;
   }

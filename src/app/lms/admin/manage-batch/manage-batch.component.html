@@ -1,5 +1,5 @@
 <!-- start page title -->
-<app-page-title title="Categories" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+<app-page-title title="Batches" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 <!-- end page title -->
 
 <div class="row">
@@ -7,7 +7,7 @@
     <div class="card">
       <div class="card-body">
         <form class="repeater" [formGroup]="form">
-        <h4 class="card-title mb-4">Add Sub Categories</h4>
+        <h4 class="card-title mb-4">Add Batch</h4>
         <div class="mb-3 col-lg-6">
             <label for="categoryName">Category Name</label>
             
@@ -25,16 +25,18 @@
           <label for="categoryName">Sub Category Name</label>
           
           <ng-select [items]="subcategories" 
-            bindLabel="categoryName"
+            bindLabel="name"
             formControlName="categoryName"
-            bindValue="categoryId" 
+            bindValue="childCategoryId" 
             (change)="categoryDropdownHandler($event)">
           </ng-select>
           <div *ngIf="formSubmitted && form.controls.categoryName.errors" class="invalid-feedback">
             <span *ngIf="formSubmitted && form.controls.categoryName.errors.required">Please select Category</span>
           </div>
       </div>
-        
+      <div class="mb-3 col-lg-6">
+        <label for="categoryName">Batch Name</label>
+      </div>
           <div formArrayName="formlist">
             <div *ngFor="let data1 of formData().controls; let i=index;">
               <div [formGroupName]="i" class="row">
@@ -63,7 +65,7 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title mb-4">Manage Sub Categories</h4>
+        <h4 class="card-title mb-4">Manage Batches</h4>
         <div *ngFor="let catty of subcategories; let i=index;">
           <div class="row">
             <div class="mb-3 col-lg-6">
