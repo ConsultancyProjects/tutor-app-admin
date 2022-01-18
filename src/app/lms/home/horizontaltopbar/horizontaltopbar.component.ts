@@ -44,6 +44,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
     { text: 'Italian', flag: 'assets/images/flags/italy.jpg', lang: 'it' },
     { text: 'Russian', flag: 'assets/images/flags/russia.jpg', lang: 'ru' },
   ];
+  role='';
 
   // tslint:disable-next-line: max-line-length
   constructor(@Inject(DOCUMENT) private document: any, private router: Router, private eventService: EventService, private authService: AuthenticationService,
@@ -57,6 +58,11 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
         this.activateMenu();
       }
     });
+    if (localStorage.getItem('LOGGEDIN_USER')) {
+      this.role = JSON.parse(localStorage.getItem('LOGGEDIN_USER')).role[0].authority;
+      this.role = this.role.charAt(0).toUpperCase() + this.role.slice(1).toLowerCase();
+    }
+   
     
   }
 
