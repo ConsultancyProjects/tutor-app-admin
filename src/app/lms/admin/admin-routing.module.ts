@@ -34,8 +34,8 @@ const routes: Routes = [
    { path: 'assignCourse', component: AssignCourseComponent },
    { path: 'removeStudentFromCourse', component: RemoveStudentCourseComponent },
    { path: 'createCourse', component: CreateCourseComponent},
-   { path: 'viewCourses', component: ViewCoursesComponent},
    { path: 'editCourse', component: EditCourseComponent},
+   { path: 'viewCourses', component: ViewCoursesComponent},
    { path: 'scheduleCourse', component: ScheduleCourseComponent}
    ]}
 ];

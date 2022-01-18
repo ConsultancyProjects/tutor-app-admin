@@ -7,5 +7,5 @@ export * from './child-video-category.service';
 export * from './timetable.service';
 export * from './user-video-category.service';
 export * from './user.service';
-
+export * from './file-upload.service';
 

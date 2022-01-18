@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { CategoryService } from 'src/app/shared';
+import { CategoryService, ChildVideoCategoryService, VideoCategoryService } from 'src/app/shared';
 
 @Component({
   selector: 'app-create-course',
@@ -11,10 +11,14 @@ export class CreateCourseComponent implements OnInit, OnChanges {
 
   breadCrumbItems: Array<{}>;
   categories: Array<{}>;
+  subcategories: any;
   selectedCategory: any;
   videosForm: any;
   courseForm: FormGroup;
-  constructor(private categoryService: CategoryService,
+  constructor(
+    private categoryService: CategoryService,
+    private videoCategoryService: VideoCategoryService,
+    private childVideoCategoryService: ChildVideoCategoryService,
     private fb: FormBuilder) { 
 
   }
@@ -28,11 +32,35 @@ export class CreateCourseComponent implements OnInit, OnChanges {
       }
     });
   }
+  loadSubCategories(): void {
+    this.childVideoCategoryService.getAllChildVideoCategoriesByParentCategoryId(this.selectedCategoryId+'').subscribe({
+      next: (data) => {
+        this.subcategories = data;
+      },
+      error: (error) => {
+
+      }
+    });
+  }
+  selectedCategoryId: number;
+  selectedCategoryName: string;
+  categoryDropdownHandler(event: any) {
+    if(event) {
+      this.selectedCategoryId = event.categoryId;
+      this.selectedCategoryName = event.categoryName;
+      this.loadSubCategories();
+    } else {
+      this.selectedCategoryId = -1;
+      this.selectedCategoryName = '';
+    }
+  }
+
   ngOnInit() {
     this.initVideos();
     this.initCourseForm();
     this.breadCrumbItems = [{ label: 'Create Courses' }, { label: 'Courses', active: true }];
     this.loadCategories();
+    this.loadSubCategories();
   }
   initCourseForm() {
     this.courseForm = new FormGroup({

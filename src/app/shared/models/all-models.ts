@@ -96,3 +96,8 @@ export interface TimeTable {
     fromDate: Date;
     toDate: Date;
 }
+
+export interface FileUpload {
+    name: string;
+    url: string;
+}
