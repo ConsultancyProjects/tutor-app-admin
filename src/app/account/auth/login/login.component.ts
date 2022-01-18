@@ -20,7 +20,7 @@ import { GENERIC_CONSTANTS, ROUTES as R } from 'src/app/core';
  * Login component
  */
 export class LoginComponent implements OnInit {
-
+  hide : boolean = true;
   loginForm: FormGroup;
   submitted = false;
   error = '';
@@ -44,6 +44,10 @@ export class LoginComponent implements OnInit {
     // get return url from route parameters or default to '/'
     // tslint:disable-next-line: no-string-literal
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
+
+  hideAndShowPwd() {
+    this.hide = !this.hide;
   }
 
   // convenience getter for easy access to form fields
