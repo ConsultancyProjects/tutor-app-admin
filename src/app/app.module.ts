@@ -34,6 +34,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { AddModule } from '@carbon/icons-angular';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CoreModule, AuthGuard } from './core';
+import { LmsHomeModule } from './lms-home/lms-home.module';
+
 
 /*
 if (environment.defaultauth === 'firebase') {
@@ -52,8 +54,7 @@ export const reducers: ActionReducerMap<any> = {
 };
 @NgModule({
   declarations: [
-    AppComponent
-    
+    AppComponent   
   ],
   imports: [
     BrowserModule,
@@ -74,7 +75,7 @@ export const reducers: ActionReducerMap<any> = {
     NgbAccordionModule,
     NgbNavModule,
     NgbTooltipModule,
-    
+    LmsHomeModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects, CategoryEffects]),
     ScrollToModule.forRoot(),

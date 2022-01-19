@@ -48,3 +48,4 @@ testem.log
 Thumbs.db
 /.angular
 /package-lock.json
+src/app/shared/services/file-upload.service.ts

@@ -8,7 +8,7 @@ import {
 } from './layouts.model';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-lms-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

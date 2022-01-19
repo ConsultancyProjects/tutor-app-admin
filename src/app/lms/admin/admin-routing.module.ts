@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 import { AdminHorizTopbarComponent } from './admin-horiz-topbar/admin-horiz-topbar.component';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { AssignCourseComponent } from './assign-course/assign-course.component';
@@ -19,9 +20,9 @@ import { ViewCoursesComponent } from './view-courses/view-courses.component';
 
 
 const routes: Routes = [
-   { path : '', component : AdminHorizTopbarComponent, children: [
-   { path: '',  component : AdminNavComponent},
-    
+   { path: '', component : AdminHorizTopbarComponent, children: [
+   { path: '', redirectTo: 'home', pathMatch: 'full'},
+   { path: 'home', component: HomeComponent},
    // { path: 'categories', loadChildren: () => import('../category/category.module').then(m => m.CategoryModule) },
    { path: 'manageCategories', component: ManageCategoriesComponent },
    { path: 'manageSubCategories', component: ManageSubcategoriesComponent },

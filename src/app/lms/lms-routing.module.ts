@@ -8,13 +8,11 @@ import { LmsNavComponent } from './lms-nav/lms-nav.component';
 const routes: Routes = [
   {
     path: '', component: HomeComponent,
-    children:[
-      {
-        path: '', component: LmsNavComponent, pathMatch: 'full'
-      },
+    children: [
+      { path: '', component: LmsNavComponent, pathMatch: 'full' },
       { path: 'admin', canActivate: [RoleGuard], data: { roles: [Role.ADMIN] }, loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-    { path: 'student', canActivate: [RoleGuard], data: { roles: [Role.STUDENT] },  loadChildren: () => import('./student/student.module').then(m => m.StudentModule) },
-    { path: 'tutor', canActivate: [RoleGuard], data: { roles: [Role.TUTOR] },  loadChildren: () => import('./tutor/tutor.module').then(m => m.TutorModule) }
+      { path: 'student', canActivate: [RoleGuard], data: { roles: [Role.STUDENT] },  loadChildren: () => import('./student/student.module').then(m => m.StudentModule) },
+      { path: 'tutor', canActivate: [RoleGuard], data: { roles: [Role.TUTOR] },  loadChildren: () => import('./tutor/tutor.module').then(m => m.TutorModule) }
     ]
   }
 ];
