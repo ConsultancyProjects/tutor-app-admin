@@ -3,6 +3,6 @@ import { ApplicationEnvironmentConfig } from "./default.environment";
 
 export const environment: IEnvironment = {
   ...ApplicationEnvironmentConfig,
-  apiHostURL: 'http://18.221.235.136:8081',
+  apiHostURL: 'http://3.139.83.152:8081',
   production: true
 };
